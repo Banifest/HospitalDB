@@ -49,7 +49,6 @@ AS
 GO
 CREATE PROCEDURE dbo.add_doctor 
     @fio nvarchar(50),
-	@gender bit,
 	@hospital_id int,
 	@nick nvarchar(50), 
 	@password nvarchar(50),
@@ -110,5 +109,24 @@ AS
 		@speciality
 	)
 GO
-
+	CREATE PROCEDURE dbo.add_hospital 
+    @address nvarchar(50),
+	@zip int,
+	@phone nvarchar(15), 
+	@main_doctor int
+AS
+	INSERT INTO hospital.dbo.Hospitals
+	(
+		address,
+		zip,
+		phone,
+		main_doctor
+	)
+	values
+	(
+		@address,
+		@zip,
+		@phone,
+		@main_doctor
+	)
 GO
