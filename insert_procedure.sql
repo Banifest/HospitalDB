@@ -8,6 +8,7 @@ CREATE PROCEDURE dbo.add_patient
 	@password nvarchar(50),
 	@birthday date 
 AS
+BEGIN TRAN
 	DECLARE @check_nick int;
 	SELECT @check_nick = count(*) FROM Users WHERE nick = @nick;
 	if(@check_nick = 0)
@@ -30,7 +31,7 @@ AS
 			@birthday
 		)
 	else
-		return -1
+		ROLLBACK
 
 	DECLARE @user_id int;
 	SELECT @user_id = id FROM Users WHERE nick = @nick;
@@ -46,6 +47,7 @@ AS
 		@hospital_id,
 		@user_id
 	)
+COMMIT TRAN
 GO
 CREATE PROCEDURE dbo.add_doctor 
     @fio nvarchar(50),
@@ -56,6 +58,7 @@ CREATE PROCEDURE dbo.add_doctor
 	@speciality nvarchar(50),
 	@birthday date
 AS
+BEGIN TRAN
 	DECLARE @check_nick int;
 	SELECT @check_nick = count(*) FROM Users WHERE nick = @nick;
 	if(@check_nick = 0)
@@ -78,7 +81,7 @@ AS
 			@birthday
 		)
 	else
-		return -1
+		ROLLBACK
 
 	DECLARE @user_id int;
 	SELECT @user_id = id FROM Users WHERE nick = @nick;
@@ -108,6 +111,7 @@ AS
 		@hospital_id,
 		@speciality
 	)
+COMMIT TRAN
 GO
 	CREATE PROCEDURE dbo.add_hospital 
     @address nvarchar(50),
@@ -115,6 +119,7 @@ GO
 	@phone nvarchar(15), 
 	@main_doctor int
 AS
+BEGIN TRAN
 	INSERT INTO hospital.dbo.Hospitals
 	(
 		address,
@@ -129,12 +134,14 @@ AS
 		@phone,
 		@main_doctor
 	)
+COMMIT TRAN
 GO
 	CREATE PROCEDURE dbo.add_examination 
     @doctor_id int,
 	@patient_id int,
 	@param xml
 AS
+BEGIN TRAN
 	INSERT INTO hospital.dbo.Examinations
 	(
 		doctor_id,
@@ -147,6 +154,7 @@ AS
 		@patient_id,
 		@param
 	)
+COMMIT TRAN
 GO
 	CREATE PROCEDURE dbo.add_disease 
     @name_disease nvarchar(50),
@@ -155,6 +163,7 @@ GO
 	@doctor_id int,
 	@patient_id int
 AS
+BEGIN TRAN
 	INSERT INTO hospital.dbo.Diseases
 	(
 		name_disease,
@@ -171,11 +180,13 @@ AS
 		@doctor_id,
 		@patient_id
 	)
+COMMIT TRAN
 GO
 	CREATE PROCEDURE dbo.add_drags_to_disease 
     @disease_id int,
 	@drag_id int
 AS
+BEGIN TRAN
 	INSERT INTO hospital.dbo.DiseasesDrags
 	(
 		disease_id,
@@ -186,4 +197,5 @@ AS
 		@disease_id,
 		@drag_id
 	)
+COMMIT TRAN
 GO
