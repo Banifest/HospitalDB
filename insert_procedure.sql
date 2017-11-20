@@ -1,4 +1,4 @@
-USE [hospital]
+USE test
 GO
 CREATE PROCEDURE dbo.add_patient 
     @fio nvarchar(50),
@@ -48,6 +48,7 @@ BEGIN TRAN
 		@user_id
 	)
 COMMIT TRAN
+
 GO
 CREATE PROCEDURE dbo.add_doctor 
     @fio nvarchar(50),
@@ -198,4 +199,34 @@ BEGIN TRAN
 		@drag_id
 	)
 COMMIT TRAN
+GO
+CREATE PROCEDURE dbo.add_user
+	  @fio nvarchar(50),
+	  @nick nvarchar(50),
+	  @password nvarchar(50),
+	  @birthday date
+AS
+BEGIN TRANSACTION
+  DECLARE @check_nick int;
+	SELECT @check_nick = count(*) FROM Users WHERE nick = @nick;
+	if(@check_nick = 0)
+		INSERT INTO Users
+		(
+			type,
+			nick,
+			password,
+			date_registration,
+			fio,
+			birthday
+		)
+		values
+		(
+			1,
+			@nick,
+			@password,
+			SYSDATETIME(),
+			@fio,
+			@birthday
+		)
+COMMIT TRANSACTION
 GO

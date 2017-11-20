@@ -1,7 +1,7 @@
-USE [hospital]
+USE [test]
 GO
 CREATE TABLE [dbo].[Users](
-	[id] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[type] [int] NOT NULL,
 	[nick] [nvarchar](50) NOT NULL,
 	[password] [nvarchar](50) NOT NULL,
@@ -14,19 +14,24 @@ CREATE TABLE [dbo].[Users](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-
 CREATE TABLE [dbo].[Doctors](
-	[id] [int] NOT NULL,
-	[specialty] [nvarchar](50) NOT NULL,
-	[hospital_id] [int] NOT NULL,
-	[position_type] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[added_description] [nvarchar](max) NULL,
-	[user_id] [int] NOT NULL,
+	[user_id] [int] NULL,
  CONSTRAINT [PK_Doctors_1] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+CREATE TABLE [dbo].[DoctorsHospitals](
+	[id] [int] identity(1, 1) NOT NULL,
+	[date_begin_working] [date] NOT NULL,
+	[date_end_working] [date] NULL,
+	[doctor_id] [int] NULL,
+	[hospital_id] [int] NULL,
+	[speciality] [nvarchar](50) NOT NULL
+) ON [PRIMARY]
 GO
 
 CREATE TABLE [dbo].[Patients](
@@ -42,7 +47,7 @@ CREATE TABLE [dbo].[Patients](
 GO
 
 CREATE TABLE [dbo].[Diseases](
-	[id] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[name_disease] [nvarchar](50) NOT NULL,
 	[begin_date] [date] NOT NULL,
 	[end_date] [date] NOT NULL,
@@ -56,7 +61,7 @@ CREATE TABLE [dbo].[Diseases](
 GO
 
 CREATE TABLE [dbo].[DiseasesDrags](
-	[id] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[disease_id] [int] NOT NULL,
 	[drag_id] [int] NOT NULL,
  CONSTRAINT [PK_DiseasesDrags] PRIMARY KEY CLUSTERED 
@@ -83,7 +88,7 @@ CREATE TABLE [dbo].[Drags](
 GO
 
 CREATE TABLE [dbo].[Examinations](
-	[id] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[doctor_id] [int] NOT NULL,
 	[param] [xml] NOT NULL,
 	[value] [nvarchar](50) NOT NULL,
@@ -96,7 +101,7 @@ CREATE TABLE [dbo].[Examinations](
 GO
 
 CREATE TABLE [dbo].[Hospitals](
-	[id] [int] NOT NULL,
+	[id] [int] identity(1, 1) NOT NULL,
 	[address] [nvarchar](50) NOT NULL,
 	[zip] [int] NOT NULL,
 	[phone] [nvarchar](15) NOT NULL,
@@ -107,8 +112,25 @@ CREATE TABLE [dbo].[Hospitals](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[Doctors]  WITH CHECK ADD  CONSTRAINT [FK_Doctors_Users] FOREIGN KEY([user_id])
+REFERENCES [dbo].[Users] ([id])
+GO
 
+ALTER TABLE [dbo].[Doctors] CHECK CONSTRAINT [FK_Doctors_Users]
 
+ALTER TABLE [dbo].[DoctorsHospitals]  WITH CHECK ADD  CONSTRAINT [FK_DoctorsHospitals_Doctors] FOREIGN KEY([doctor_id])
+REFERENCES [dbo].[Doctors] ([id])
+GO
+
+ALTER TABLE [dbo].[DoctorsHospitals] CHECK CONSTRAINT [FK_DoctorsHospitals_Doctors]
+GO
+
+ALTER TABLE [dbo].[DoctorsHospitals]  WITH CHECK ADD  CONSTRAINT [FK_DoctorsHospitals_Hospitals] FOREIGN KEY([hospital_id])
+REFERENCES [dbo].[Hospitals] ([id])
+GO
+
+ALTER TABLE [dbo].[DoctorsHospitals] CHECK CONSTRAINT [FK_DoctorsHospitals_Hospitals]
+GO
 
 ALTER TABLE [dbo].[Hospitals]  WITH CHECK ADD  CONSTRAINT [FK_Hospitals_Doctors] FOREIGN KEY([main_doctor])
 REFERENCES [dbo].[Doctors] ([id])
@@ -171,14 +193,6 @@ REFERENCES [dbo].[Users] ([id])
 GO
 
 ALTER TABLE [dbo].[Patients] CHECK CONSTRAINT [FK_Patients_Users]
-GO
-
-
-
-
-
-ALTER TABLE [dbo].[Doctors]  WITH CHECK ADD  CONSTRAINT [FK_Doctors_Users] FOREIGN KEY([user_id])
-REFERENCES [dbo].[Users] ([id])
 GO
 
 ALTER TABLE [dbo].[Doctors] CHECK CONSTRAINT [FK_Doctors_Users]
