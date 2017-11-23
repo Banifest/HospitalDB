@@ -1,28 +1,34 @@
 import sys
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QMessageBox
 
-from client.gui.view.AuthWindow import AuthWindow
-from client.gui.view.MainWindow import MainWindow
+from client.gui.control.AuthController import AuthController
+from client.gui.control.UserController import UserController
+from client.model.QueryException import QueryException
 from client.model.dbConnect import connection_to_db
-from client.model.user_action import User
+from client.model.User import User
 
 
+# noinspection PyCallByClass
 class MainController:
     user: User
-    login: str
-    password: str
+
+    _userController: UserController
+    _authController: AuthController
 
     def __init__(self):
         App = QApplication(sys.argv)
-        self.conn = connection_to_db('test','123')
-        self._mainWindow = MainWindow(self)
+        try:
+            self.conn = connection_to_db('test', '123')
+            self._authController = AuthController(self, self.conn)
+        except QueryException as err:
+            MainController.get_error(err)
         App.exec()
 
-    def set_login(self, login: str):
-        self.login = login
+    @staticmethod
+    def get_error(widget, err):
 
-    def set_password(self, login: str):
-        self.password = login
+        pass
 
-    def try_auth(self):
-        self.user = User(self.conn, self.login, self.password)
+    def create_user_window(self, user: User):
+        self.user = user
+        self._userController = UserController(self, self.user)
