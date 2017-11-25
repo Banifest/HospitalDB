@@ -17,7 +17,7 @@ class Drag:
         if id is not None:
             cursor.execute("EXEC get_drag_by_id {0}".format(id))
         elif name is not None:
-            cursor.execute("EXEC get_drag_by_name {0}".format(name))
+            cursor.execute("EXEC get_drag_by_name '{0}'".format(name))
         else:
             raise QueryException(300)
         row = cursor.fetchone()

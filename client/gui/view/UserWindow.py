@@ -1,11 +1,9 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget
 
-
-
 class UserWindow(QWidget):
 
-    def __init__(self, controller, patient ):
+    def __init__(self, controller, patient):
         self._controller = controller
 
         super(UserWindow, self).__init__()
@@ -14,6 +12,6 @@ class UserWindow(QWidget):
         self.fio_label.setText(patient.fio)
         self.birthday_label.setText(patient.birthday)
         self.gender_label.setText(patient.gender)
-        self.hospital_label.setText(patient.address)
+        self.hospital_label.setText(patient.zip)
 
         self.show()

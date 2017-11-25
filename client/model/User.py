@@ -14,8 +14,21 @@ class User:
     birthday: date
     is_auth_success: bool
 
-    def __init__(self, connection, login: str, password: str):
+    def __init__(self, user_id: int = 0, login: str = 0, password: str = 0, user_type: int = 0,
+                 date_registration: date = 0, fio: str = 0, birthday: date = 0, is_empty: bool=1):
+        if not is_empty:
+            self.id = user_id
+            self.login = login
+            self.password = password
+            self.type = user_type
+            self.date_registration = date_registration
+            self.fio = fio
+            self.birthday = birthday
+
+    def set_connection(self, connection):
         self.conn = connection
+
+    def geg_from_db(self, login: str, password: str):
         cursor = self.conn.cursor()
 
         cursor.execute("EXEC auth_user '{0}', '{1}'".format(login, password))
@@ -29,3 +42,9 @@ class User:
             self.fio = row[5]
         else:
             raise QueryException(301)
+
+
+    @staticmethod
+    def create_user(login: str, password: str, fio: str, gender: bool, zip: str):
+
+        pass
