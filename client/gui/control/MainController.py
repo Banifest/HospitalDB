@@ -9,6 +9,14 @@ from client.model.dbConnect import connection_to_db
 from client.model.User import User
 
 
+class HospitalDB(QApplication):
+    def notify(self, QObject, QEvent):
+        try:
+            return super().notify(QObject, QEvent)
+        except QueryException as err:
+            print(err)
+            return False
+
 # noinspection PyCallByClass
 class MainController:
     user: User
@@ -18,17 +26,14 @@ class MainController:
     _regController: RegController
 
     def __init__(self):
-        App = QApplication(sys.argv)
-        try:
-            self.conn = connection_to_db('test', '123')
-            self._authController = AuthController(self, self.conn)
-            App.exec()
-        except QueryException as err:
-            MainController.get_error(err)
+        App = HospitalDB(sys.argv)
+
+        self.conn = connection_to_db('test', '123')
+        self._authController = AuthController(self, self.conn)
+        App.exec()
 
     @staticmethod
     def get_error(widget, err):
-
         pass
 
     def create_user_window(self, user: User):

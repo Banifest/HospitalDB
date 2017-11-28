@@ -27,4 +27,13 @@ class UserWindow(QWidget):
         self.drag_by_id_button.clicked.connect(self._controller.select_drag_by_id)
         self.drag_by_name_button.clicked.connect(self._controller.select_drag_by_name)
 
+        # Section 3
+        self.date_begin_examinations.userDateChanged.connect(self._controller.set_date_begin_examination)
+        self.date_end_examinations.userDateChanged.connect(self._controller.set_date_end_examination)
+        self.include_examination_button.clicked.connect(self._controller.select_examination)
+        self.exclude_examination_button.clicked.connect(self._controller.select_inverse_examination)
+
+        self.examination_id_text_box.textChanged.connect(self._controller.set_id_examination)
+        self.get_param_examination.clicked.connect(self._controller.select_examination_param)
+
         self.show()

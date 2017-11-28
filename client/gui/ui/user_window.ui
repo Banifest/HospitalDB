@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>740</width>
+    <width>616</width>
     <height>632</height>
    </rect>
   </property>
@@ -19,17 +19,69 @@
      <x>160</x>
      <y>10</y>
      <width>451</width>
-     <height>281</height>
+     <height>279</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="1" column="0">
-       <layout class="QGridLayout" name="gridLayout_6"/>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Информация об обследованиях</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QDateEdit" name="date_begin_examinations"/>
+        </item>
+        <item row="3" column="1">
+         <widget class="QDateEdit" name="date_end_examinations"/>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="QLineEdit" name="examination_id_text_box">
+          <property name="placeholderText">
+           <string notr="true">id обследования</string>
+          </property>
+          <property name="cursorMoveStyle">
+           <enum>Qt::LogicalMoveStyle</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="exclude_examination_button">
+          <property name="text">
+           <string>Исключая</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="include_examination_button">
+          <property name="text">
+           <string>Включая</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <widget class="QPushButton" name="get_param_examination">
+          <property name="text">
+           <string>Получить подробную информацию</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout_4">
+        <item row="2" column="1">
+         <widget class="QPushButton" name="exclude_disease_button">
+          <property name="text">
+           <string>Исключая</string>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="1">
          <widget class="QDateEdit" name="date_ending_disease"/>
         </item>
@@ -50,17 +102,7 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="exclude_disease_button">
-          <property name="text">
-           <string>Исключая</string>
-          </property>
-         </widget>
-        </item>
        </layout>
-      </item>
-      <item row="1" column="1">
-       <layout class="QGridLayout" name="gridLayout_7"/>
       </item>
       <item row="0" column="1">
        <layout class="QGridLayout" name="gridLayout_5">
@@ -124,6 +166,9 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item row="1" column="1">
+       <layout class="QGridLayout" name="gridLayout_7"/>
       </item>
      </layout>
     </item>
