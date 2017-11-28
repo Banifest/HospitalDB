@@ -32,13 +32,12 @@ class Patient:
         else:
             self._user = User(fio=fio, birthday=birthday, login=login, password=password, user_type=user_type, is_empty=False)
             self._user.set_connection(connection)
-        self._hospitalAddress = patient_zip
+        self._hospitalZip = patient_zip
         self._gender = gender
 
     def get(self, conn, login, password):
-        self._user = User()
-        self._user.set_connection(conn)
-        self._user.geg_from_db(login, password)
+        self._user = User(connection=conn)
+        self._user.get(login, password)
         cursor = self._user.conn.cursor()
         cursor.execute("EXEC get_patient '{0}', '{1}'".format(self._user.login, self._user.password))
         row = cursor.fetchone()
@@ -50,12 +49,13 @@ class Patient:
 
     def save(self):
         cursor = self._user.conn.cursor()
-        cursor.execute("EXEC add_patient '{0}', {1}, {2}, '{3}', '{4}', '{5}'"
+        cursor.execute("EXEC add_patient '{0}', {1}, {2}, '{3}', '{4}', '{5}';"
                        .format(self.fio, self._gender, self.zip, self._user.login, self._user.password,
                                self.birthday))
-        print("EXEC add_patient '{0}', {1}, {2}, '{3}', '{4}', '{5}'"
+        print("EXEC add_patient '{0}', {1}, {2}, '{3}', '{4}', '{5}';"
                        .format(self.fio, self._gender, self.zip, self._user.login, self._user.password,
                                self.birthday))
-        row = cursor.fetchone()
-        if row is None:
-            raise QueryException(202)
+        try:
+            row = cursor.fetchone()
+        except: pass
+        else: raise QueryException(202)

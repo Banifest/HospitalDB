@@ -6,23 +6,128 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>463</height>
+    <width>740</width>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Patient's information</string>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>160</x>
      <y>10</y>
-     <width>381</width>
+     <width>451</width>
      <height>281</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout"/>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="0">
+       <layout class="QGridLayout" name="gridLayout_6"/>
+      </item>
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="1">
+         <widget class="QDateEdit" name="date_ending_disease"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QDateEdit" name="date_begining_disease"/>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Запросить информацию по болезням с, по</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="include_disease_button">
+          <property name="text">
+           <string>Включая</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="exclude_disease_button">
+          <property name="text">
+           <string>Исключая</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="1">
+       <layout class="QGridLayout" name="gridLayout_7"/>
+      </item>
+      <item row="0" column="1">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="4" column="0">
+         <widget class="QLineEdit" name="drag_id_text_box">
+          <property name="placeholderText">
+           <string>id лекарства</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="drag_name_text_box">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>имя лекарства</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="drag_by_id_button">
+          <property name="text">
+           <string>По id</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="drag_by_name_button">
+          <property name="text">
+           <string>По имени</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QPushButton" name="list_drags_disease_button">
+          <property name="text">
+           <string>Получить список лекарств</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Получить информацию об лекарстве</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QLineEdit" name="disease_id_text_box">
+          <property name="placeholderText">
+           <string>id болезни</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Список лекарств принимавших при болезни</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
@@ -34,6 +139,16 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
+    <item row="6" column="0">
+     <widget class="QLabel" name="gender_label">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
@@ -41,7 +156,7 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <widget class="QLabel" name="birthday_label">
       <property name="text">
        <string/>
@@ -51,7 +166,31 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата рождения:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="hospital_label">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Адресс больницы:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
      <widget class="QLabel" name="fio_label">
       <property name="text">
        <string/>
@@ -62,47 +201,41 @@
      </widget>
     </item>
     <item row="5" column="0">
-     <widget class="QLabel" name="gender_label">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="hospital_label">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Дата рождения:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
      <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>Пол:</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Пол:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_4">
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_8">
       <property name="text">
-       <string>Адресс больницы:</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ФИО:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QTableWidget" name="table">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>601</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="rowCount">
+    <number>2</number>
+   </property>
+   <property name="columnCount">
+    <number>3</number>
+   </property>
+   <row/>
+   <row/>
+   <column/>
+   <column/>
+   <column/>
   </widget>
  </widget>
  <resources/>

@@ -20,7 +20,7 @@ class AuthController:
     def try_auth(self):
         self.user = User()
         self.user.set_connection(self._connection)
-        self.user.geg_from_db(self.login, self.password)
+        self.user.get(self.login, self.password)
         if self.user.type == 1:
             self._mainController.create_user_window(self.user)
         elif self.user.type == 2:

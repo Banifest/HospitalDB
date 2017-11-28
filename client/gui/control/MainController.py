@@ -22,9 +22,9 @@ class MainController:
         try:
             self.conn = connection_to_db('test', '123')
             self._authController = AuthController(self, self.conn)
+            App.exec()
         except QueryException as err:
             MainController.get_error(err)
-        App.exec()
 
     @staticmethod
     def get_error(widget, err):
