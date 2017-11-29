@@ -33,6 +33,7 @@ class UserWindow(QWidget):
         self.include_examination_button.clicked.connect(self._controller.select_examination)
         self.exclude_examination_button.clicked.connect(self._controller.select_inverse_examination)
 
+        self.current_state_health_button.clicked.connect(self._controller.select_current_health_state)
         self.examination_id_text_box.textChanged.connect(self._controller.set_id_examination)
         self.get_param_examination.clicked.connect(self._controller.select_examination_param)
 

@@ -88,6 +88,10 @@ class UserController:
         self.param_examination_out("EXEC get_param_examination '{0}', '{1}', {2}".format(
             self.login, self.password, self._id_examination))
 
+    def select_current_health_state(self):
+        self.param_examination_out("EXEC [get_current_state_health] '{0}', '{1}'".format(
+            self.login, self.password))
+
     def disease_out(self, query: str):
         table: QTableWidget = self._userWindow.table
         table.clearContents()

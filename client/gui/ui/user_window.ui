@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>616</width>
+    <width>691</width>
     <height>632</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <x>160</x>
      <y>10</y>
      <width>451</width>
-     <height>279</height>
+     <height>308</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -40,7 +40,7 @@
         <item row="3" column="1">
          <widget class="QDateEdit" name="date_end_examinations"/>
         </item>
-        <item row="5" column="0" colspan="2">
+        <item row="6" column="0" colspan="2">
          <widget class="QLineEdit" name="examination_id_text_box">
           <property name="placeholderText">
            <string notr="true">id обследования</string>
@@ -57,6 +57,13 @@
           </property>
          </widget>
         </item>
+        <item row="7" column="0" colspan="2">
+         <widget class="QPushButton" name="get_param_examination">
+          <property name="text">
+           <string>Получить подробную информацию</string>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="0">
          <widget class="QPushButton" name="include_examination_button">
           <property name="text">
@@ -64,10 +71,10 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="0" colspan="2">
-         <widget class="QPushButton" name="get_param_examination">
+        <item row="5" column="0" colspan="2">
+         <widget class="QPushButton" name="current_state_health_button">
           <property name="text">
-           <string>Получить подробную информацию</string>
+           <string>Текущее состояние здоровья</string>
           </property>
          </widget>
         </item>
@@ -180,7 +187,7 @@
      <x>10</x>
      <y>10</y>
      <width>152</width>
-     <height>281</height>
+     <height>301</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -265,9 +272,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>290</y>
+     <y>330</y>
      <width>601</width>
-     <height>341</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="rowCount">
