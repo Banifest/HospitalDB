@@ -25,6 +25,9 @@ class AuthController:
             self._mainController.create_user_window(self.user)
         elif self.user.type == 2:
             self._mainController.create_reg_window(self.user)
+        elif self.user.type == 3:
+            self._mainController.create_doctor_window(self.user)
+        self._authWindow.setVisible(False)
 
     def get_info(self):
         self._mainController.create_info_window()

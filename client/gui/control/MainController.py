@@ -7,6 +7,7 @@ from client.gui.control.DoctorController import DoctorController
 from client.gui.control.InfoController import InfoController
 from client.gui.control.RegController import RegController
 from client.gui.control.UserController import UserController
+from client.model.Doctor import Doctor
 from client.model.User import User
 from client.model.dbConnect import connection_to_db
 
@@ -40,5 +41,5 @@ class MainController:
     def create_info_window(self):
         self._infoController = InfoController(self)
 
-    def create_doctor_window(self):
-        self._doctorController = DoctorController(self)
+    def create_doctor_window(self, doctor_user: Doctor):
+        self._doctorController = DoctorController(self, doctor_user)
