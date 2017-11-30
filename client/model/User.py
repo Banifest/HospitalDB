@@ -1,7 +1,6 @@
 from datetime import date
 
-from client.model.QueryException import QueryException
-from client.model.dbConnect import connection_to_db
+from client.model.QueryMessageController import QueryMessageController
 
 
 class User:
@@ -42,7 +41,7 @@ class User:
             self.fio = row[5]
             self.birthday = row[6]
         else:
-            raise QueryException(301)
+            QueryMessageController(301)
 
 
     @staticmethod

@@ -1,21 +1,14 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMessageBox
+
+from PyQt5.QtWidgets import QApplication
 
 from client.gui.control.AuthController import AuthController
+from client.gui.control.InfoController import InfoController
 from client.gui.control.RegController import RegController
 from client.gui.control.UserController import UserController
-from client.model.QueryException import QueryException
-from client.model.dbConnect import connection_to_db
 from client.model.User import User
+from client.model.dbConnect import connection_to_db
 
-
-class HospitalDB(QApplication):
-    def notify(self, QObject, QEvent):
-        try:
-            return super().notify(QObject, QEvent)
-        except QueryException as err:
-            print(err)
-            return False
 
 # noinspection PyCallByClass
 class MainController:
@@ -26,8 +19,7 @@ class MainController:
     _regController: RegController
 
     def __init__(self):
-        App = HospitalDB(sys.argv)
-
+        App = QApplication(sys.argv)
         self.conn = connection_to_db('test', '123')
         self._authController = AuthController(self, self.conn)
         App.exec()
@@ -42,3 +34,6 @@ class MainController:
 
     def create_reg_window(self, reg_user: User):
         self._regController = RegController(self, reg_user)
+
+    def create_info_window(self):
+        self._infoController = InfoController(self)

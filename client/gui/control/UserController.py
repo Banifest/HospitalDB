@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from datetime import date
+
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 
 from client.gui.view.UserWindow import UserWindow
 from client.model.Patient import Patient
@@ -12,8 +13,6 @@ class UserController:
     _date_begin_disease: date = '01-01-2000'
     _date_end_disease: date = '01-01-2000'
     _id_disease: int = 1
-    _id_drag: int = 1
-    _name_drag: str = ""
 
     _date_begin_examination = '01-01-2000'
     _date_end_examination = '01-01-2000'
@@ -49,12 +48,6 @@ class UserController:
     def set_id_disease(self, value: str):
         self._id_disease = value
 
-    def set_id_drag(self, value):
-        self._id_drag = value
-
-    def set_name_drag(self, value):
-        self._name_drag = value
-
     def set_id_examination(self, value):
         self._id_examination = value
 
@@ -69,12 +62,6 @@ class UserController:
     def select_list_drags_by_id(self):
         self.drag_out("EXEC [get_drags_by_disease] '{0}', '{1}', {2};".format(
             self.login, self.password, self._id_disease))
-
-    def select_drag_by_id(self):
-        self.drag_out("EXEC [get_drag_by_id] {0};".format(self._id_drag))
-
-    def select_drag_by_name(self):
-        self.drag_out("EXEC [get_drag_by_name] '{0}';".format(self._name_drag))
 
     def select_examination(self):
         self.examination_out("EXEC [get_patient_examinations] '{0}', '{1}', '{2}', '{3}'".format(

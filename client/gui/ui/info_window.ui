@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>info_window</class>
+    <widget class="QWidget" name="info_window">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>559</width>
+                <height>358</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>information_winfow</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>30</x>
+                    <y>30</y>
+                    <width>201</width>
+                    <height>81</height>
+                </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+                <item row="1" column="0">
+                    <widget class="QLineEdit" name="drag_id_text_box">
+                        <property name="placeholderText">
+                            <string>id лекарства</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="2" column="1">
+                    <widget class="QPushButton" name="drag_by_name_button">
+                        <property name="text">
+                            <string>По имени</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="1" column="1">
+                    <widget class="QLineEdit" name="drag_name_text_box">
+                        <property name="text">
+                            <string/>
+                        </property>
+                        <property name="placeholderText">
+                            <string>имя лекарства</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="2" column="0">
+                    <widget class="QPushButton" name="drag_by_id_button">
+                        <property name="text">
+                            <string>По id</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="0" column="0" colspan="2">
+                    <widget class="QLabel" name="label_7">
+                        <property name="text">
+                            <string>Получить информацию об лекарстве</string>
+                        </property>
+                    </widget>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QTableWidget" name="table">
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>181</y>
+                    <width>541</width>
+                    <height>171</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="QWidget" name="gridLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>320</x>
+                    <y>10</y>
+                    <width>191</width>
+                    <height>161</height>
+                </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+                <item row="4" column="0">
+                    <widget class="QPushButton" name="get_time_work_by_zip_button">
+                        <property name="text">
+                            <string>Получить информацию по индексу</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="3" column="0">
+                    <widget class="QLineEdit" name="get_work_time_fio_text_box">
+                        <property name="text">
+                            <string/>
+                        </property>
+                        <property name="placeholderText">
+                            <string>ФИО врача</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="1" column="0">
+                    <widget class="QLineEdit" name="get_work_time_zip_text_box">
+                        <property name="text">
+                            <string/>
+                        </property>
+                        <property name="placeholderText">
+                            <string>Индекс больницы</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="2" column="0">
+                    <widget class="QLabel" name="label_2">
+                        <property name="text">
+                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;И(ИЛИ)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="5" column="0">
+                    <widget class="QPushButton" name="get_time_work_by_fio_button">
+                        <property name="text">
+                            <string>Получить информацию по ФИО</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="0" column="0">
+                    <widget class="QLabel" name="label">
+                        <property name="text">
+                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время работы
+                                врача(ей)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                            </string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="6" column="0">
+                    <widget class="QPushButton" name="get_time_work_button">
+                        <property name="text">
+                            <string>Получить информацию</string>
+                        </property>
+                    </widget>
+                </item>
+            </layout>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

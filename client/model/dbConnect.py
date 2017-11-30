@@ -1,4 +1,3 @@
-import pyodbc
 import pymssql
 
 # def connection_to_db(username: str = 'test', password: str = '123'):
@@ -11,6 +10,5 @@ import pymssql
 
 
 def connection_to_db(username: str = 'test', password: str = '123'):
-    conn = pymssql.connect(server='localhost', user='test', password='123', database="test", port='1434',
+    return pymssql.connect(server='localhost', user=username, password=password, database="test", port='1434',
                            autocommit=True)
-    return conn

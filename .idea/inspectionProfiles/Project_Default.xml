@@ -19,6 +19,7 @@
         <list>
           <option value="GUI.windows.MainWindow.Controller" />
           <option value="PyQt5.QtCore.pyqtSignal.pyqtSignal.*" />
+          <option value="datetime.date.toString" />
         </list>
       </option>
     </inspection_tool>

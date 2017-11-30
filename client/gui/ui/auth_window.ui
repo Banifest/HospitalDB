@@ -24,14 +24,17 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="login_test_box">
+        <item row="2" column="0">
+            <widget class="QLineEdit" name="password_text_box">
+                <property name="echoMode">
+                    <enum>QLineEdit::Password</enum>
+                </property>
        <property name="placeholderText">
-        <string>LOGIN</string>
+           <string>PASSWORD</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
+        <item row="3" column="0">
       <widget class="QPushButton" name="auth_button">
        <property name="text">
         <string>Вход</string>
@@ -42,12 +45,16 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLineEdit" name="password_text_box">
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
+         <widget class="QLineEdit" name="login_test_box">
        <property name="placeholderText">
-        <string>PASSWORD</string>
+           <string>LOGIN</string>
+       </property>
+         </widget>
+     </item>
+        <item row="0" column="0">
+            <widget class="QPushButton" name="get_common_info_button">
+                <property name="text">
+                    <string>Просмотр общей информации</string>
        </property>
       </widget>
      </item>
