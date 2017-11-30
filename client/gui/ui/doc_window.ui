@@ -6,13 +6,310 @@
             <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>400</width>
-                <height>300</height>
+                <width>817</width>
+                <height>370</height>
             </rect>
         </property>
         <property name="windowTitle">
             <string>doctor_window</string>
         </property>
+        <widget class="QToolBox" name="toolBox">
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>10</y>
+                    <width>291</width>
+                    <height>351</height>
+                </rect>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>291</width>
+                    <height>321</height>
+                </size>
+            </property>
+            <property name="currentIndex">
+                <number>4</number>
+            </property>
+            <property name="tabSpacing">
+                <number>6</number>
+            </property>
+            <widget class="QWidget" name="page">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>291</width>
+                        <height>216</height>
+                    </rect>
+                </property>
+                <attribute name="label">
+                    <string>Добавить запись о болезни пациента</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_3">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>0</y>
+                            <width>272</width>
+                            <height>209</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_4">
+                        <item row="2" column="0">
+                            <widget class="QLineEdit" name="add_name_disease_text_box">
+                                <property name="placeholderText">
+                                    <string>Имя заболевания</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QLineEdit" name="add_login_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Логин пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0">
+                            <widget class="QLabel" name="label_6">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        окончания болезни&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QDateEdit" name="add_date_begin_dsease"/>
+                        </item>
+                        <item row="3" column="0">
+                            <widget class="QLabel" name="label_5">
+                                <property name="text">
+                                    <string>Дата начала болезни</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QCheckBox" name="add_is_end_disease">
+                                <property name="text">
+                                    <string>Окончилась ли болезнь</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="8" column="0">
+                            <widget class="QPushButton" name="add_disease_button">
+                                <property name="text">
+                                    <string>Добавить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="7" column="0">
+                            <widget class="QDateEdit" name="add_date_end_disease">
+                                <property name="date">
+                                    <date>
+                                        <year>7000</year>
+                                        <month>1</month>
+                                        <day>1</day>
+                                    </date>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_2">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>291</width>
+                        <height>216</height>
+                    </rect>
+                </property>
+                <attribute name="label">
+                    <string>Изменить запись о болезни пациента</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_4">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>30</y>
+                            <width>271</width>
+                            <height>141</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_5">
+                        <item row="4" column="0">
+                            <widget class="QPushButton" name="change_button">
+                                <property name="text">
+                                    <string>Изменить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="0">
+                            <widget class="QDateEdit" name="change_date_end_disease_text_box">
+                                <property name="date">
+                                    <date>
+                                        <year>7000</year>
+                                        <month>1</month>
+                                        <day>1</day>
+                                    </date>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QLabel" name="label_7">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        окончания заболевания&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="0" column="0">
+                            <widget class="QLineEdit" name="change_login_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Логин пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QLineEdit" name="change_id_disease_text_box">
+                                <property name="placeholderText">
+                                    <string>id заболевания</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_4">
+                <attribute name="label">
+                    <string>Просмотреть болезни пациента</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_2">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>60</y>
+                            <width>271</width>
+                            <height>81</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_2">
+                        <item row="1" column="0">
+                            <widget class="QPushButton" name="see_button">
+                                <property name="text">
+                                    <string>Просмотреть</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="0" column="0">
+                            <widget class="QLineEdit" name="see_login_text_box">
+                                <property name="placeholderText">
+                                    <string>Логин пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_3">
+                <attribute name="label">
+                    <string>Просмотреть информацию о болезни пациента</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>40</y>
+                            <width>271</width>
+                            <height>101</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout">
+                        <item row="2" column="0">
+                            <widget class="QPushButton" name="see_info_button">
+                                <property name="text">
+                                    <string>Посмотреть</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="0" column="0">
+                            <widget class="QLineEdit" name="see_info_login_text_box">
+                                <property name="placeholderText">
+                                    <string>Логин пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QLineEdit" name="see_info_id_text_box">
+                                <property name="placeholderText">
+                                    <string>id болезни</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_5">
+                <attribute name="label">
+                    <string>Назначить лекарство</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_5">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>30</y>
+                            <width>271</width>
+                            <height>121</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_3">
+                        <item row="0" column="0">
+                            <widget class="QLineEdit" name="appoint_id_text_box">
+                                <property name="placeholderText">
+                                    <string>id болезни</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QPushButton" name="appoint_button">
+                                <property name="text">
+                                    <string>Назначить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QLineEdit" name="appoint_name_disease_text_box">
+                                <property name="placeholderText">
+                                    <string>Название лекарства</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+        </widget>
+        <widget class="QTableWidget" name="table">
+            <property name="geometry">
+                <rect>
+                    <x>310</x>
+                    <y>10</y>
+                    <width>501</width>
+                    <height>351</height>
+                </rect>
+            </property>
+        </widget>
     </widget>
     <resources/>
     <connections/>

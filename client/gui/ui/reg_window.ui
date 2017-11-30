@@ -6,345 +6,378 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>403</width>
-       <height>543</height>
+       <width>256</width>
+       <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+        <widget class="QToolBox" name="toolBox">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-        <width>191</width>
-        <height>241</height>
+        <x>10</x>
+        <y>10</y>
+        <width>231</width>
+        <height>391</height>
     </rect>
    </property>
-      <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-          <item row="9" column="0" colspan="2">
-              <widget class="QPushButton" name="add_patient_button">
-      <property name="text">
-          <string>Добавить пациента</string>
-      </property>
-              </widget>
-          </item>
-          <item row="1" column="0" colspan="2">
-              <widget class="QLineEdit" name="user_login_text_box">
-                  <property name="placeholderText">
-                      <string>Логин</string>
-                  </property>
-              </widget>
-          </item>
-          <item row="6" column="1">
-              <widget class="QRadioButton" name="user_women_radio">
-                  <property name="text">
-                      <string>жен</string>
-                  </property>
-              </widget>
-          </item>
-          <item row="7" column="0" colspan="2">
-     <widget class="QLineEdit" name="user_zip_text_box">
-      <property name="placeholderText">
-       <string>Индекс больницы</string>
-      </property>
-     </widget>
-    </item>
-          <item row="3" column="0" colspan="2">
-              <widget class="QLineEdit" name="user_fio_text_box">
-                  <property name="text">
-                      <string/>
-                  </property>
-      <property name="placeholderText">
-          <string>Фамилия Имя Отчество</string>
-      </property>
-     </widget>
-    </item>
-          <item row="2" column="0" colspan="2">
-     <widget class="QLineEdit" name="user_password_text_box">
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
-      </property>
-      <property name="placeholderText">
-       <string>Пароль</string>
-      </property>
-     </widget>
-    </item>
-          <item row="6" column="0" alignment="Qt::AlignLeft">
-              <widget class="QRadioButton" name="user_men_radio">
-                  <property name="text">
-                      <string>муж</string>
-                  </property>
-                  <property name="checked">
-                      <bool>true</bool>
-                  </property>
-              </widget>
-          </item>
-          <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="label">
-                  <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot;
-                          font-size:10pt; font-weight:600;&quot;&gt;Добавить пользователя&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                      </string>
-                  </property>
-              </widget>
-          </item>
-          <item row="5" column="0" colspan="2">
-              <widget class="QDateEdit" name="user_birthday"/>
-          </item>
-          <item row="4" column="0" colspan="2">
-              <widget class="QLabel" name="label_4">
-                  <property name="text">
-                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
-              </widget>
-          </item>
-      </layout>
-  </widget>
-        <widget class="QWidget" name="gridLayoutWidget">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>260</y>
-                    <width>191</width>
-                    <height>131</height>
-                </rect>
+            <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
             </property>
-            <layout class="QGridLayout" name="gridLayout_2">
-                <item row="1" column="0">
-                    <widget class="QLabel" name="label_2">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
-                                style=&quot; font-size:7pt; font-weight:600;&quot;&gt;Сменить больницу пользователя&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="5" column="0">
-                    <widget class="QPushButton" name="change_hospital_user">
-                        <property name="text">
-                            <string>Сменить привязку к больницы</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="4" column="0">
-                    <widget class="QLineEdit" name="new_zip_hospital_text_box">
-      <property name="placeholderText">
-          <string>Новый индекс больницы</string>
-      </property>
-     </widget>
-    </item>
-                <item row="3" column="0">
-                    <widget class="QLineEdit" name="id_name_user_text_box">
-                        <property name="placeholderText">
-                            <string>login пользователя</string>
-                        </property>
-                    </widget>
-                </item>
-            </layout>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget_2">
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>0</y>
-                    <width>201</width>
-                    <height>244</height>
-                </rect>
+            <property name="currentIndex">
+                <number>4</number>
             </property>
-            <layout class="QGridLayout" name="gridLayout_3">
-                <item row="5" column="0">
-                    <widget class="QLabel" name="label_5">
-      <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-                <item row="7" column="0">
-                    <widget class="QTextEdit" name="add_discription_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>Дополнительное описание</string>
+            <widget class="QWidget" name="page">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>231</width>
+                        <height>256</height>
+                    </rect>
+                </property>
+                <attribute name="label">
+                    <string>Нанять врача</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_3">
+                    <property name="geometry">
+                        <rect>
+                            <x>20</x>
+                            <y>0</y>
+                            <width>201</width>
+                            <height>241</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_4">
+                        <item row="7" column="0">
+                            <widget class="QLabel" name="label_6">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        начала
+                                        работы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="13" column="0">
+                            <widget class="QPushButton" name="take_button">
+                                <property name="text">
+                                    <string>Добавить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="12" column="0">
+                            <widget class="QTimeEdit" name="take_doctor_time_end"/>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QLineEdit" name="take_zip_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>Индекс больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="9" column="0">
+                            <widget class="QLabel" name="label_8">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время
+                                        начала
+                                        смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="10" column="0">
+                            <widget class="QTimeEdit" name="take_doctor_time_begin"/>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QLineEdit" name="take_special_doctor_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Назавание специальности</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="11" column="0">
+                            <widget class="QLabel" name="label_9">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время
+                                        конца
+                                        смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="0">
+                            <widget class="QLineEdit" name="take_login_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>Логин врача</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="8" column="0">
+                            <widget class="QDateEdit" name="take_doctor_date_being_work"/>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_2">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>231</width>
+                        <height>256</height>
+                    </rect>
+                </property>
+                <attribute name="label">
+                    <string>Добавить пользователя</string>
+                </attribute>
+                <widget class="QWidget" name="verticalLayoutWidget">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>30</y>
+                            <width>216</width>
+                            <height>201</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0">
+                        <property name="sizeConstraint">
+                            <enum>QLayout::SetDefaultConstraint</enum>
                         </property>
-                    </widget>
-                </item>
-                <item row="4" column="0">
-                    <widget class="QLineEdit" name="add_password_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>Пароль</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="2" column="0">
-                    <widget class="QLineEdit" name="add_fio_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>ФИО врача</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="11" column="0">
-                    <widget class="QPushButton" name="create_doctor_button">
-      <property name="text">
-          <string>Добавить врача</string>
-      </property>
-                    </widget>
-                </item>
-                <item row="3" column="0">
-                    <widget class="QLineEdit" name="add_login_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>Логин</string>
-      </property>
-     </widget>
-    </item>
-                <item row="6" column="0">
-                    <widget class="QDateEdit" name="add_date_birthday_text_box"/>
-                </item>
-                <item row="1" column="0">
-                    <widget class="QLabel" name="label_3">
-      <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot;
+                        <item row="1" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_password_text_box">
+                                <property name="echoMode">
+                                    <enum>QLineEdit::Password</enum>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Пароль</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0" alignment="Qt::AlignLeft">
+                            <widget class="QRadioButton" name="user_men_radio">
+                                <property name="text">
+                                    <string>муж</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="0" colspan="2">
+                            <widget class="QLabel" name="label_4">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_fio_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Фамилия Имя Отчество</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0" colspan="2">
+                            <widget class="QDateEdit" name="user_birthday"/>
+                        </item>
+                        <item row="6" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_zip_text_box">
+                                <property name="placeholderText">
+                                    <string>Индекс больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="0" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_login_text_box">
+                                <property name="placeholderText">
+                                    <string>Логин</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="1">
+                            <widget class="QRadioButton" name="user_women_radio">
+                                <property name="text">
+                                    <string>жен</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="8" column="0" colspan="2">
+                            <widget class="QPushButton" name="add_patient_button">
+                                <property name="text">
+                                    <string>Добавить пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_3">
+                <attribute name="label">
+                    <string>Добавить врача</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_2">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>0</y>
+                            <width>201</width>
+                            <height>257</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_3">
+                        <item row="7" column="0">
+                            <widget class="QDateEdit" name="add_date_birthday_text_box"/>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QLineEdit" name="add_login_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>Логин</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="12" column="0">
+                            <widget class="QPushButton" name="create_doctor_button">
+                                <property name="text">
+                                    <string>Добавить врача</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="8" column="0">
+                            <widget class="QTextEdit" name="add_discription_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>Дополнительное описание</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QLineEdit" name="add_password_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>Пароль</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0">
+                            <widget class="QLabel" name="label_5">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="0">
+                            <widget class="QLineEdit" name="add_fio_doctor_text_box">
+                                <property name="placeholderText">
+                                    <string>ФИО врача</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QLabel" name="label_3">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
+                                        style=&quot;
               font-weight:600;&quot;&gt;Добавить врача&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
           </string>
-      </property>
-                    </widget>
-                </item>
-            </layout>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget_3">
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>260</y>
-                    <width>201</width>
-                    <height>282</height>
-                </rect>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_4">
-                <item row="14" column="0">
-                    <widget class="QPushButton" name="take_button">
-                        <property name="text">
-                            <string>Добавить</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="6" column="0">
-                    <widget class="QLineEdit" name="take_special_doctor_text_box">
-                        <property name="text">
-                            <string/>
-                        </property>
-                        <property name="placeholderText">
-                            <string>Назавание специальности</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="4" column="0">
-                    <widget class="QLineEdit" name="take_login_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>Логин врача</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="9" column="0">
-                    <widget class="QDateEdit" name="take_doctor_date_being_work"/>
-                </item>
-                <item row="8" column="0">
-                    <widget class="QLabel" name="label_6">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата начала
-                                работы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="11" column="0">
-                    <widget class="QTimeEdit" name="take_doctor_time_begin"/>
-                </item>
-                <item row="13" column="0">
-                    <widget class="QTimeEdit" name="take_doctor_time_end"/>
-                </item>
-                <item row="10" column="0">
-                    <widget class="QLabel" name="label_8">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время начала
-                                смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="12" column="0">
-                    <widget class="QLabel" name="label_9">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время конца
-                                смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="3" column="0">
-                    <widget class="QLabel" name="label_7">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
-                                style=&quot; font-weight:600;&quot;&gt;Нанять доктора на&lt;/span&gt;&lt;/p&gt;&lt;p
-                                align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;работу в
-                                больницу&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="5" column="0">
-                    <widget class="QLineEdit" name="take_zip_doctor_text_box">
-                        <property name="placeholderText">
-                            <string>Индекс больницы</string>
-                        </property>
-                    </widget>
-                </item>
-            </layout>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget_4">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>420</y>
-                    <width>191</width>
-                    <height>121</height>
-                </rect>
-            </property>
-            <layout class="QGridLayout" name="del_login_text_box">
-                <item row="4" column="0">
-                    <widget class="QPushButton" name="del_button">
-                        <property name="text">
-                            <string>Удалить</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="0" column="0" rowspan="2">
-                    <widget class="QLabel" name="label_10">
-                        <property name="text">
-                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
-                                style=&quot; font-weight:600;&quot;&gt;Уволить врача&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
-                                style=&quot; font-weight:600;&quot;&gt;из больницы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                            </string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="2" column="0">
-                    <widget class="QLineEdit" name="lineEdit_6">
-                        <property name="placeholderText">
-                            <string>Логин врача</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="3" column="0">
-                    <widget class="QLineEdit" name="del_password_text_box">
-                        <property name="placeholderText">
-                            <string>Индекс больницы</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_4">
+                <attribute name="label">
+                    <string>Сменить больницу пользователя</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>191</width>
+                            <height>131</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_2">
+                        <item row="3" column="0">
+                            <widget class="QLineEdit" name="new_zip_hospital_text_box">
+                                <property name="placeholderText">
+                                    <string>Новый индекс больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QLineEdit" name="id_name_user_text_box">
+                                <property name="placeholderText">
+                                    <string>login пользователя</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QPushButton" name="change_hospital_user">
+                                <property name="text">
+                                    <string>Сменить привязку к больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+                <zorder>gridLayoutWidget</zorder>
+                <zorder>gridLayoutWidget</zorder>
+            </widget>
+            <widget class="QWidget" name="page_5">
+                <attribute name="label">
+                    <string>Уволить врача из больницы</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_4">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>191</width>
+                            <height>121</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="del_login_text_box">
+                        <item row="2" column="0">
+                            <widget class="QPushButton" name="del_button">
+                                <property name="text">
+                                    <string>Удалить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="0" column="0">
+                            <widget class="QLineEdit" name="lineEdit_6">
+                                <property name="placeholderText">
+                                    <string>Логин врача</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QLineEdit" name="del_password_text_box">
+                                <property name="placeholderText">
+                                    <string>Индекс больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+                <zorder>gridLayoutWidget_4</zorder>
+                <zorder>gridLayoutWidget_4</zorder>
+            </widget>
   </widget>
  </widget>
  <resources/>

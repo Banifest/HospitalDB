@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtWidgets import QApplication
 
 from client.gui.control.AuthController import AuthController
+from client.gui.control.DoctorController import DoctorController
 from client.gui.control.InfoController import InfoController
 from client.gui.control.RegController import RegController
 from client.gui.control.UserController import UserController
@@ -17,6 +18,7 @@ class MainController:
     _userController: UserController
     _authController: AuthController
     _regController: RegController
+    _doctorController: DoctorController
 
     def __init__(self):
         App = QApplication(sys.argv)
@@ -37,3 +39,6 @@ class MainController:
 
     def create_info_window(self):
         self._infoController = InfoController(self)
+
+    def create_doctor_window(self):
+        self._doctorController = DoctorController(self)
