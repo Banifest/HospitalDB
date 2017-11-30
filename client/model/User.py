@@ -1,6 +1,6 @@
 from datetime import date
 
-from client.model.QueryMessageController import QueryMessageController
+from client.model.QueryMessage import QueryMessage
 
 
 class User:
@@ -41,7 +41,7 @@ class User:
             self.fio = row[5]
             self.birthday = row[6]
         else:
-            QueryMessageController(301)
+            QueryMessage(301)
 
 
     @staticmethod

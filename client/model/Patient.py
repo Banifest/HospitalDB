@@ -1,6 +1,6 @@
 from datetime import date
 
-from client.model.QueryMessageController import QueryMessageController
+from client.model.QueryMessage import QueryMessage
 from client.model.User import User
 
 
@@ -54,4 +54,4 @@ class Patient:
                                self.birthday))
         row = cursor.fetchone()
         if row[0] == 0:
-            QueryMessageController(302)
+            QueryMessage(302)

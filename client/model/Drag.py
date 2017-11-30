@@ -1,6 +1,6 @@
 from datetime import date
 
-from client.model.QueryMessageController import QueryMessageController
+from client.model.QueryMessage import QueryMessage
 
 
 class Drag:
@@ -19,7 +19,7 @@ class Drag:
         elif name is not None:
             cursor.execute("EXEC get_drag_by_name '{0}'".format(name))
         else:
-            QueryMessageController(303)
+            QueryMessage(303)
         row = cursor.fetchone()
 
         if row is not None:

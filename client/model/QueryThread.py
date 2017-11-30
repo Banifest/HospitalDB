@@ -13,6 +13,6 @@ class QueryThread(QThread):
         self._connection = _connection
 
     def run(self):
-        cursor = self.conn.cursor()
-        cursor.execute(self.query)
+        self.cursor = self._connection.cursor()
+        self.cursor.execute(self._query)
         self.done.emit()
