@@ -18,11 +18,9 @@ class UserWindow(QWidget):
 
         self.date_begining_disease.userDateChanged.connect(self._controller.set_date_begin_disease)
         self.date_ending_disease.userDateChanged.connect(self._controller.set_date_end_disease)
-        self.disease_id_text_box.textChanged.connect(self._controller.set_id_disease)
 
         self.include_disease_button.clicked.connect(self._controller.select_include_disease)
         self.exclude_disease_button.clicked.connect(self._controller.select_exclude_disease)
-        self.list_drags_disease_button.clicked.connect(self._controller.select_list_drags_by_id)
 
         # Section 3
         self.date_begin_examinations.userDateChanged.connect(self._controller.set_date_begin_examination)
@@ -31,7 +29,7 @@ class UserWindow(QWidget):
         self.exclude_examination_button.clicked.connect(self._controller.select_inverse_examination)
 
         self.current_state_health_button.clicked.connect(self._controller.select_current_health_state)
-        self.examination_id_text_box.textChanged.connect(self._controller.set_id_examination)
-        self.get_param_examination.clicked.connect(self._controller.select_examination_param)
+
+        self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a))
 
         self.show()

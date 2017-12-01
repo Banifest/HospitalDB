@@ -10,6 +10,15 @@ from client.model.User import User
 
 
 class UserController:
+    currentState = 0
+
+    SELECT_STATE: dict = {
+        'none': 0,
+        'disease': 1,
+        'drag': 2,
+        'examination': 3
+    }
+
     _userWindow: UserWindow
     _patient: Patient
     _date_begin_disease: date = '01-01-2000'
@@ -72,36 +81,42 @@ class UserController:
         self._id_examination = value
 
     def select_include_disease(self):
+        self.currentState = self.SELECT_STATE['disease']
         self.standard_out(self.DISEASE_HEADER, "EXEC [get_patient_diseases] '{0}', '{1}', '{2}', '{3}';"
                           .format(self.login, self.password, self._date_begin_disease, self._date_end_disease))
 
     def select_exclude_disease(self):
+        self.currentState = self.SELECT_STATE['disease']
         self.standard_out(self.DISEASE_HEADER, "EXEC [get_inverse_patient_diseases] '{0}', '{1}', '{2}', '{3}';"
                           .format(self.login, self.password, self._date_begin_disease, self._date_end_disease))
 
-    def select_list_drags_by_id(self):
-        self.standard_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease] '{0}', '{1}', {2};".format(
-            self.login, self.password, self._id_disease))
+    def select_list_drags_by_id(self, id_):
+        self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease] '{0}', '{1}', {2};".format(
+            self.login, self.password, id_))
 
     def select_examination(self):
+        self.currentState = self.SELECT_STATE['examination']
         self.standard_out(self.EXAMINATION_HEADER, "EXEC [get_patient_examinations] '{0}', '{1}', '{2}', '{3}'".format(
             self.login, self.password, self._date_begin_examination, self._date_end_examination))
 
     def select_inverse_examination(self):
+        self.currentState = self.SELECT_STATE['examination']
         self.standard_out(self.EXAMINATION_HEADER,
                           "EXEC [get_inverse_patient_examinations] '{0}', '{1}', '{2}', '{3}'".format(
             self.login, self.password, self._date_begin_examination, self._date_end_examination))
 
-    def select_examination_param(self):
-        self.standard_out(self.PARAM_HEADER, "EXEC get_param_examination '{0}', '{1}', {2}".format(
-            self.login, self.password, self._id_examination))
+    def select_examination_param(self, id_):
+        self.additional_out(self.PARAM_HEADER, "EXEC get_param_examination '{0}', '{1}', {2}".format(
+            self.login, self.password, id_))
 
     def select_current_health_state(self):
         self.standard_out(self.PARAM_HEADER, "EXEC [get_current_state_health] '{0}', '{1}'".format(
             self.login, self.password))
 
-    def out(self, header_titles: list, cursor):
-        table: QTableWidget = self._userWindow.table
+    def out(self, header_titles: list, cursor, table: QTableWidget = None):
+        if not table:
+            table: QTableWidget = self._userWindow.table
+
         table.clearContents()
         table.setColumnCount(len(header_titles))
         table.setHorizontalHeaderLabels(header_titles)
@@ -122,7 +137,20 @@ class UserController:
             row_count += 1
             row = cursor.fetchone()
 
+        table.resizeColumnsToContents()
+
     def standard_out(self, header_titles: list, query: str):
         self.thread = QueryThread(query, self.connection)
         self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor))
         self.thread.start()
+
+    def additional_out(self, header_titles: list, query: str):
+        self.thread = QueryThread(query, self.connection)
+        self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, table=self._userWindow.desc_table))
+        self.thread.start()
+
+    def change_additional(self, row_number: int):
+        if self.currentState == self.SELECT_STATE['examination']:
+            self.select_examination_param(int(self._userWindow.table.item(row_number, 0).text()))
+        elif self.currentState == self.SELECT_STATE['disease']:
+            self.select_list_drags_by_id(int(self._userWindow.table.item(row_number, 0).text()))
