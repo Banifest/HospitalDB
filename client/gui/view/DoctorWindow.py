@@ -27,5 +27,6 @@ class DoctorWindow(QWidget):
         self.change_button.clicked.connect(self._controller.select_change_disease_patient)
         self.appoint_button.clicked.connect(self._controller.select_add_drag)
 
+        self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a, b))
 
         self.show()
