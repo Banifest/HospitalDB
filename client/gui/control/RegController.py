@@ -1,11 +1,18 @@
 from client.gui.view.RegWindow import RegWindow
 from client.model.Patient import Patient
+from client.model.QueryMessage import QueryMessage
+from client.model.QueryThread import QueryThread
 from client.model.User import User
 
 
 class RegController:
     _regWindow: RegWindow
     _patient: Patient
+    _regUser: User
+
+    @property
+    def connection(self):
+        return self._regUser.conn
 
     patient_login: str = ""
     patient_password: str = ""
@@ -97,26 +104,56 @@ class RegController:
         self.take_doctor_being_date = value.toString('dd-MM-yyyy')
 
     def add_patient(self):
-        Patient(connection=self._regUser.conn, fio=self.patient_fio, patient_zip=self.patient_hospital_zip,
-                login=self.patient_login, password=self.patient_password, gender=self.patient_gender,
-                birthday=self.patient_birthday).save()
+        self.get_query("EXEC [add_patient] '{0}', {1}, {2}, '{3}', '{4}', '{5}';"
+                       .format(self.patient_fio,
+                               self.patient_gender,
+                               self.patient_hospital_zip,
+                               self.patient_login,
+                               self.patient_password,
+                               self.patient_birthday))
 
     def add_doctor(self):
-        pass
+        self.get_query("EXEC [add_doctor] '{0}', {1}, {2}, '{3}', '{4}';"
+                       .format(self.add_doctor_fio,
+                               self.add_doctor_login,
+                               self.add_doctor_password,
+                               self.add_doctor_birthday,
+                               self.add_doctor_description))
 
     def take_doctor(self):
-        pass
+        self.get_query("EXEC [take_doctor] '{0}', {1}, {2}, '{3}', '{4}', '{5}';"
+                       .format(self.take_doctor_login,
+                               self.take_doctor_zip,
+                               self.take_doctor_spec,
+                               self.take_doctor_being_date,
+                               self.take_doctor_being_time,
+                               self.take_doctor_end_time))
 
     def del_doctor(self):
-        pass
+        self.get_query("EXEC [del_doctor] '{0}', {1};"
+                       .format(self.del_login,
+                               self.del_zip))
 
     def change_patient(self):
-        pass
+        self.get_query("EXEC [change_patient] '{0}', {1};"
+                       .format(self.change_login,
+                               self.change_zip))
 
     def __init__(self, _mainController, reg_user: User):
         self._mainController = _mainController
         self._regUser = reg_user
         self._regWindow = RegWindow(self)
 
-    def get_query(self, error_code: int):
-        pass
+    def get_query(self, query: str):
+        self.thread = QueryThread(query, self.connection)
+        self.thread.done.connect(lambda: self.out(self.thread.cursor))
+        self.thread.start()
+
+    def out(self, cursor):
+        row = cursor.fetchone()
+        if not row:
+            QueryMessage(200)
+        elif row[0] != 0:
+            QueryMessage(row[0])
+        else:
+            self.connection.commit()

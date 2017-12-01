@@ -10,6 +10,6 @@ import pymssql
 #     return pyodbc.connect(connection_string)
 
 
-def connection_to_db(username: str = 'test', password: str = '123'):
+def connection_to_db(username: str = 'reg', password: str = 'reg'):
     return pymssql.connect(server='localhost', user=username, password=password, database="test", port='1434',
                            autocommit=True)
