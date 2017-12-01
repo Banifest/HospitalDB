@@ -8,7 +8,7 @@ class InfoWindow(QWidget):
         super(InfoWindow, self).__init__()
         self._controller = controller
 
-        uic.loadUi(r'G:\Новая папка\SQL Server Management Studio\kursach\HospitalDB\client\gui\ui\info_window.ui', self)
+        uic.loadUi(r'gui\ui\info_window.ui', self)
 
         # get info drag section
         self.drag_id_text_box.textChanged.connect(self._controller.set_id_drag)

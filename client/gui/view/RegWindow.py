@@ -9,7 +9,7 @@ class RegWindow(QWidget):
         # TODO PIVOT
         # noinspection PyArgumentList
         super(RegWindow, self).__init__()
-        uic.loadUi(r'G:\Новая папка\SQL Server Management Studio\kursach\HospitalDB\client\gui\ui\reg_window.ui', self)
+        uic.loadUi(r'gui\ui\reg_window.ui', self)
         self.user_login_text_box.textChanged.connect(self._controller.set_login)
         self.user_password_text_box.textChanged.connect(self._controller.set_password)
         self.user_fio_text_box.textChanged.connect(self._controller.set_fio)

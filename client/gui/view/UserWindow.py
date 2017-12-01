@@ -9,7 +9,7 @@ class UserWindow(QWidget):
 
         # noinspection PyArgumentList
         super(UserWindow, self).__init__()
-        uic.loadUi(r'G:\Новая папка\SQL Server Management Studio\kursach\HospitalDB\client\gui\ui\user_window.ui', self)
+        uic.loadUi(r'gui\ui\user_window.ui', self)
 
         self.fio_label.setText(patient.fio)
         self.birthday_label.setText(patient.birthday)

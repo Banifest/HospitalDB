@@ -11,7 +11,6 @@ from client.model.User import User
 
 class UserController:
     currentState = 0
-
     SELECT_STATE: dict = {
         'none': 0,
         'disease': 1,
@@ -103,13 +102,14 @@ class UserController:
         self.currentState = self.SELECT_STATE['examination']
         self.standard_out(self.EXAMINATION_HEADER,
                           "EXEC [get_inverse_patient_examinations] '{0}', '{1}', '{2}', '{3}'".format(
-            self.login, self.password, self._date_begin_examination, self._date_end_examination))
+                              self.login, self.password, self._date_begin_examination, self._date_end_examination))
 
     def select_examination_param(self, id_):
         self.additional_out(self.PARAM_HEADER, "EXEC get_param_examination '{0}', '{1}', {2}".format(
             self.login, self.password, id_))
 
     def select_current_health_state(self):
+        self.currentState = self.SELECT_STATE['none']
         self.standard_out(self.PARAM_HEADER, "EXEC [get_current_state_health] '{0}', '{1}'".format(
             self.login, self.password))
 

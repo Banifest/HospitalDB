@@ -8,7 +8,7 @@ class AuthWindow(QMainWindow):
         super(AuthWindow, self).__init__()
         self._controller = controller
 
-        uic.loadUi(r'G:\Новая папка\SQL Server Management Studio\kursach\HospitalDB\client\gui\ui\auth_window.ui', self)
+        uic.loadUi(r'gui\ui\auth_window.ui', self)
         self.auth_button.clicked.connect(self._controller.try_auth)
         self.login_test_box.textChanged.connect(self._controller.set_login)
         self.password_text_box.textChanged.connect(self._controller.set_password)
