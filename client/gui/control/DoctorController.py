@@ -26,6 +26,7 @@ class DoctorController:
     _add_date_being: str = "01-01-2000"
     _add_is_end: bool = True
     _add_date_end: str = "01-01-2000"
+    _add_decs_disease: str = ""
 
     _change_login: str = ""
     _change_id_disease: int = 1
@@ -33,8 +34,16 @@ class DoctorController:
 
     _see_login: str = ""
 
+    _see_exm_login: str = ""
+
     _appoint_id_disease: int = 1
     _appoint_name_drag: str = ""
+
+    _emx_login: str = ""
+    _emx_name: str = ""
+
+    _param_name: str = ""
+    _param_val: str = ""
 
     @property
     def cursor(self):
@@ -56,6 +65,21 @@ class DoctorController:
         # noinspection PyProtectedMember
         return self._doctor._user.password
 
+    def set_see_exm_login(self, value):
+        self._see_exm_login = value
+
+    def set_emx_login(self, value):
+        self._emx_login = value
+
+    def set_emx_name(self, value):
+        self._emx_name = value
+
+    def set_param_name(self, value):
+        self._emx_login = value
+
+    def set_param_val(self, value):
+        self._emx_name = value
+
     def set_see_login(self, value):
         self._see_login = value
 
@@ -72,6 +96,9 @@ class DoctorController:
         self._add_is_end = value
         self._docWindow.add_date_end_disease.setEnabled(value)
 
+    def set_add_decs_disease(self, value):
+        self._add_decs_disease = value
+
     def set_add_date_end(self, value):
         self._add_date_end = value.toString('dd-MM-yyyy')
 
@@ -82,15 +109,30 @@ class DoctorController:
         self._appoint_name_drag = value
 
     def select_disease_patient(self):
-        pass
+        self.currentState = self.SELECT_STATE['disease']
+        self.standard_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+                          "EXEC SELECT_DISEASE '{0}', '{1}', '{2}'".format(
+                              self._see_login, self.login, self.password))
 
     def select_add_disease_patient(self):
-        pass
+        self.standard_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+                          "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', '{5}''".format(
+                              self._see_login, self.login, self.password, self._add_name_disease,
+                              self._add_date_being, self._add_date_end, self._add_decs_disease))
 
     def select_change_disease_patient(self):
         pass
 
     def select_add_drag(self):
+        pass
+
+    def select_add_emx(self):
+        pass
+
+    def select_add_param(self):
+        pass
+
+    def select_see_emx(self):
         pass
 
     def __init__(self, _mainController, doctor: Doctor):

@@ -46,4 +46,4 @@ class MainController:
         self._infoController = InfoController(self)
 
     def create_doctor_window(self, doctor_user: Doctor):
-        self._doctorController = DoctorController(self, doctor_user)
+        self._doctorController = DoctorController(self, Doctor(user=doctor_user))
