@@ -20,9 +20,8 @@
       <string>Авторизация</string>
   </property>
      <property name="windowIcon">
-         <iconset resource="../../resource.qrc">
-             <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png</normaloff>
-             :/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png
+         <iconset resource="../../img.qrc">
+             <normaloff>:/icon/resource/auth.png</normaloff>:/icon/resource/auth.png
          </iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -52,9 +51,8 @@
         <string>Вход</string>
        </property>
           <property name="icon">
-              <iconset resource="../../resource.qrc">
-                  <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png</normaloff>
-                  :/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png
+              <iconset resource="../../img.qrc">
+                  <normaloff>:/icon/resource/auth.png</normaloff>:/icon/resource/auth.png
               </iconset>
           </property>
        <property name="shortcut">
@@ -87,7 +85,7 @@
         <tabstop>get_common_info_button</tabstop>
     </tabstops>
     <resources>
-        <include location="../../resource.qrc"/>
+        <include location="../../img.qrc"/>
     </resources>
  <connections/>
 </ui>

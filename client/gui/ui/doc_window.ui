@@ -14,9 +14,8 @@
             <string>doctor_window</string>
         </property>
         <property name="windowIcon">
-            <iconset resource="../../resource.qrc">
-                <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/doc.png</normaloff>
-                :/icon/C:/Users/banif/OneDrive/Pictures/hospital/doc.png
+            <iconset resource="../../img.qrc">
+                <normaloff>:/icon/resource/doc.png</normaloff>:/icon/resource/doc.png
             </iconset>
         </property>
         <widget class="QToolBox" name="toolBox">
@@ -84,8 +83,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>98</width>
+                        <height>28</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -180,8 +179,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>98</width>
+                        <height>28</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -241,8 +240,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>98</width>
+                        <height>28</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -285,6 +284,14 @@
                 </widget>
             </widget>
             <widget class="QWidget" name="page_6">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>98</width>
+                        <height>28</height>
+                    </rect>
+                </property>
                 <attribute name="label">
                     <string>Просмотреть записи об обследованиях</string>
                 </attribute>
@@ -320,8 +327,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>98</width>
+                        <height>28</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -366,8 +373,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>98</width>
+                        <height>28</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -492,7 +499,7 @@
         <tabstop>see_exm_button</tabstop>
     </tabstops>
     <resources>
-        <include location="../../resource.qrc"/>
+        <include location="../../img.qrc"/>
     </resources>
     <connections/>
 </ui>

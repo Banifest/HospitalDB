@@ -14,7 +14,7 @@
             <string>information_winfow</string>
         </property>
         <property name="windowIcon">
-            <iconset resource="../../resource.qrc">
+            <iconset>
                 <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/info.png</normaloff>
                 :/icon/C:/Users/banif/OneDrive/Pictures/hospital/info.png
             </iconset>
@@ -150,7 +150,7 @@
         </widget>
     </widget>
     <resources>
-        <include location="../../resource.qrc"/>
+        <include location="../../img.qrc"/>
     </resources>
     <connections/>
 </ui>

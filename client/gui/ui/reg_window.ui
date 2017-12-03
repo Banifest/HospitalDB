@@ -11,12 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+      <string>Регистратура</string>
   </property>
         <property name="windowIcon">
-            <iconset resource="../../resource.qrc">
-                <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/reg.png</normaloff>
-                :/icon/C:/Users/banif/OneDrive/Pictures/hospital/reg.png
+            <iconset resource="../../img.qrc">
+                <normaloff>:/icon/resource/reg.png</normaloff>:/icon/resource/reg.png
             </iconset>
         </property>
         <widget class="QToolBox" name="toolBox">
@@ -405,7 +404,7 @@
   </widget>
  </widget>
     <resources>
-        <include location="../../resource.qrc"/>
+        <include location="../../img.qrc"/>
     </resources>
  <connections/>
 </ui>

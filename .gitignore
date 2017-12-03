@@ -7,3 +7,9 @@ client/gui/control/__pycache__/
 client/gui/view/__pycache__/
 client/model/__pycache__/
 client/resource.qrc
+/client/resource\.png
+/client/resource/patient.png
+/client/resource/reg.png
+/client/resource/info.png
+/client/resource/auth.png
+/client/resource/doc.png
