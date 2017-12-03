@@ -1,8 +1,9 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QWidget
+
+from client.gui.view.CloseInterface import CloseInterface
 
 
-class UserWindow(QWidget):
+class UserWindow(CloseInterface):
 
     def __init__(self, controller, patient):
         self._controller = controller

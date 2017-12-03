@@ -11,6 +11,9 @@ class AuthController:
         self._authWindow = AuthWindow(self)
         self._connection = connection
 
+    def set_connection(self, value):
+        self._connection = value
+
     def set_login(self, login: str):
         self.login = login
 
@@ -31,3 +34,6 @@ class AuthController:
 
     def get_info(self):
         self._mainController.create_info_window()
+
+    def on_enabled(self):
+        self._authWindow.setVisible(True)

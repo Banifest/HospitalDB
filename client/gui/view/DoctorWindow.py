@@ -1,8 +1,9 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QWidget
+
+from client.gui.view.CloseInterface import CloseInterface
 
 
-class DoctorWindow(QWidget):
+class DoctorWindow(CloseInterface):
     def __init__(self, controller):
         # noinspection PyArgumentList
         super(DoctorWindow, self).__init__()

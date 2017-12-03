@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+        <property name="windowIcon">
+            <iconset resource="../../resource.qrc">
+                <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/reg.png</normaloff>
+                :/icon/C:/Users/banif/OneDrive/Pictures/hospital/reg.png
+            </iconset>
+        </property>
         <widget class="QToolBox" name="toolBox">
    <property name="geometry">
     <rect>
@@ -349,8 +355,6 @@
                         </item>
                     </layout>
                 </widget>
-                <zorder>gridLayoutWidget</zorder>
-                <zorder>change_login_text_box</zorder>
             </widget>
             <widget class="QWidget" name="page_5">
                 <property name="geometry">
@@ -400,6 +404,8 @@
             </widget>
   </widget>
  </widget>
- <resources/>
+    <resources>
+        <include location="../../resource.qrc"/>
+    </resources>
  <connections/>
 </ui>

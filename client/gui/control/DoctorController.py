@@ -15,6 +15,14 @@ class DoctorController:
         'examination': 3
     }
 
+    DISEASE_HEADER = ["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"]
+    DRAG_HEADER = ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
+                   "Надо ли рецепт"]
+
+    selected_row = -1
+    selected_column = -1
+    selected_id = -1
+
     _doctor: Doctor
     _id_drag: int = 1
     _name_drag: str = ""
@@ -110,18 +118,26 @@ class DoctorController:
 
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
-        self.standard_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+        self.standard_out(self.DISEASE_HEADER,
                           "EXEC SELECT_DISEASE '{0}', '{1}', '{2}'".format(
                               self._see_login, self.login, self.password))
 
     def select_add_disease_patient(self):
-        self.standard_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
-                          "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', '{5}''".format(
-                              self._see_login, self.login, self.password, self._add_name_disease,
-                              self._add_date_being, self._add_date_end, self._add_decs_disease))
+        self._docWindow.see_login_text_box.setText(self._add_login)
+        self.standard_out(self.DISEASE_HEADER,
+                          "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'".format(
+                              self._add_login, self.login, self.password, self._add_name_disease,
+                              self._add_date_being, self._add_date_end, self._add_decs_disease),
+                          callback=self.select_disease_patient)
+        self.currentState = self.SELECT_STATE['disease']
 
     def select_change_disease_patient(self):
-        pass
+        if self.currentState == self.SELECT_STATE['disease'] and self.selected_row != -1:
+            self.standard_out(self.DISEASE_HEADER,
+                              "EXEC [change_disease] {0}, '{1}'".format(
+                                  self.selected_id, self._change_date_end),
+                              callback=self.select_disease_patient)
+
 
     def select_add_drag(self):
         pass
@@ -129,8 +145,10 @@ class DoctorController:
     def select_add_emx(self):
         pass
 
-    def select_add_param(self):
-        pass
+    def select_add_param(self, id_):
+        self.additional_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+                            "EXEC add_param '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                                id_, self.login, self.password, self._param_name, self._param_val))
 
     def select_see_emx(self):
         pass
@@ -141,7 +159,7 @@ class DoctorController:
         self._docWindow = DoctorWindow(self)
         self._doctor = doctor
 
-    def out(self, header_titles: list, cursor, table: QTableWidget = None):
+    def out(self, header_titles: list, cursor, table: QTableWidget = None, callback=None):
         if not table:
             table: QTableWidget = self._docWindow.table
 
@@ -149,27 +167,49 @@ class DoctorController:
         table.setColumnCount(len(header_titles))
         table.setHorizontalHeaderLabels(header_titles)
         row = cursor.fetchone()
+        table.setRowCount(0)
+
         if not row:
             QueryMessage(399)
             return
+        elif row[0] == 0 and callback is not None:
+            callback()
+        elif len(row) == 1:
+            QueryMessage(row[0])
+        else:
+            row_count = 0
+            while row:
+                table.setRowCount(row_count + 1)
+                for x in range(len(header_titles)):
+                    if str(row[x]) == 'True' or str(row[x]) == 'False':
+                        table.setItem(row_count, x, QTableWidgetItem("Да" if row[7] else "Нет"))
+                    elif str(row[x]) == 'None':
+                        table.setItem(row_count, x, QTableWidgetItem("-"))
+                    else:
+                        table.setItem(row_count, x, QTableWidgetItem(str(row[x])))
+                row_count += 1
+                row = cursor.fetchone()
 
-        row_count = 0
-        table.setRowCount(row_count)
-        while row:
-            table.setRowCount(row_count + 1)
-            for x in range(len(header_titles)):
-                if str(row[x]) == 'True' or str(row[x]) == 'False':
-                    table.setItem(row_count, x, QTableWidgetItem("Да" if row[7] else "Нет"))
-                else:
-                    table.setItem(row_count, x, QTableWidgetItem(str(row[x])))
-            row_count += 1
-            row = cursor.fetchone()
+            table.resizeColumnsToContents()
 
-        table.resizeColumnsToContents()
+            if table == self._docWindow.table:
+                self.selected_row = -1
+                self.selected_column = -1
+                self._docWindow.desc_table.clearContents()
+                self._docWindow.desc_table.setRowCount(0)
 
-    def standard_out(self, header_titles: list, query: str):
+    def dml_out(self, cursor):
+        row = cursor.fetchone()
+        if not row:
+            QueryMessage(200)
+        elif row[0] != 0:
+            QueryMessage(row[0])
+        else:
+            self.connection.commit()
+
+    def standard_out(self, header_titles: list, query: str, callback=None):
         self.thread = QueryThread(query, self.connection)
-        self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor))
+        self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, callback=callback))
         self.thread.start()
 
     def additional_out(self, header_titles: list, query: str):
@@ -177,8 +217,12 @@ class DoctorController:
         self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, table=self._docWindow.desc_table))
         self.thread.start()
 
-    def change_additional(self, row_number: int, columb_number: int):
+    def change_additional(self, row_number: int, column_number: int):
+        self.selected_row = row_number
+        self.selected_column = column_number
+        self.selected_id = int(self._docWindow.table.item(row_number, 0).text())
         if self.currentState == self.SELECT_STATE['examination']:
             pass  # self.select_examination_param(int(self._docWindow.table.item(row_number, 0).text()))
         elif self.currentState == self.SELECT_STATE['disease']:
-            pass  # self.select_list_drags_by_id(int(self._docWindow.table.item(row_number, 0).text()))
+            self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
+                self.login, self.password, int(self._docWindow.table.item(row_number, 0).text())))

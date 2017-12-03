@@ -1,3 +1,9 @@
 
 role\.txt
 .idea/
+/client/resource.qrc
+client/__pycache__/
+client/gui/control/__pycache__/
+client/gui/view/__pycache__/
+client/model/__pycache__/
+client/resource.qrc

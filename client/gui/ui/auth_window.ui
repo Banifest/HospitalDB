@@ -10,8 +10,20 @@
     <height>118</height>
    </rect>
   </property>
+     <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+         </sizepolicy>
+     </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+      <string>Авторизация</string>
+  </property>
+     <property name="windowIcon">
+         <iconset resource="../../resource.qrc">
+             <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png</normaloff>
+             :/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png
+         </iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
@@ -39,8 +51,14 @@
        <property name="text">
         <string>Вход</string>
        </property>
+          <property name="icon">
+              <iconset resource="../../resource.qrc">
+                  <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png</normaloff>
+                  :/icon/C:/Users/banif/OneDrive/Pictures/hospital/auth.png
+              </iconset>
+          </property>
        <property name="shortcut">
-        <string>Return</string>
+           <string>Return, Enter</string>
        </property>
       </widget>
      </item>
@@ -62,6 +80,14 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+    <tabstops>
+        <tabstop>login_test_box</tabstop>
+        <tabstop>password_text_box</tabstop>
+        <tabstop>auth_button</tabstop>
+        <tabstop>get_common_info_button</tabstop>
+    </tabstops>
+    <resources>
+        <include location="../../resource.qrc"/>
+    </resources>
  <connections/>
 </ui>

@@ -28,10 +28,6 @@ class MainController:
         self._authController = AuthController(self, self.conn)
         App.exec()
 
-    @staticmethod
-    def get_error(widget, err):
-        pass
-
     def create_user_window(self, user: User):
         self.user = user
         self._userController = UserController(self, self.user)
@@ -45,5 +41,11 @@ class MainController:
     def create_info_window(self):
         self._infoController = InfoController(self)
 
-    def create_doctor_window(self, doctor_user: Doctor):
+    def create_doctor_window(self, doctor_user: User):
         self._doctorController = DoctorController(self, Doctor(user=doctor_user))
+
+    def reconnect(self):
+        self.conn.close()
+        self.conn = connection_to_db('test', '123')
+        self._authController.set_connection(self.conn)
+        self._authController.on_enabled()

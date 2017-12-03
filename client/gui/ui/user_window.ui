@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Patient's information</string>
   </property>
+     <property name="windowIcon">
+         <iconset resource="../../resource.qrc">
+             <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/patient.png</normaloff>
+             :/icon/C:/Users/banif/OneDrive/Pictures/hospital/patient.png
+         </iconset>
+     </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -286,6 +292,8 @@
          </property>
      </widget>
  </widget>
- <resources/>
+    <resources>
+        <include location="../../resource.qrc"/>
+    </resources>
  <connections/>
 </ui>

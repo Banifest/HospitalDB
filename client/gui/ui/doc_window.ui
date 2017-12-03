@@ -7,11 +7,17 @@
                 <x>0</x>
                 <y>0</y>
                 <width>817</width>
-                <height>403</height>
+                <height>429</height>
             </rect>
         </property>
         <property name="windowTitle">
             <string>doctor_window</string>
+        </property>
+        <property name="windowIcon">
+            <iconset resource="../../resource.qrc">
+                <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/doc.png</normaloff>
+                :/icon/C:/Users/banif/OneDrive/Pictures/hospital/doc.png
+            </iconset>
         </property>
         <widget class="QToolBox" name="toolBox">
             <property name="geometry">
@@ -19,7 +25,7 @@
                     <x>10</x>
                     <y>10</y>
                     <width>291</width>
-                    <height>381</height>
+                    <height>411</height>
                 </rect>
             </property>
             <property name="minimumSize">
@@ -29,7 +35,7 @@
                 </size>
             </property>
             <property name="currentIndex">
-                <number>4</number>
+                <number>0</number>
             </property>
             <property name="tabSpacing">
                 <number>6</number>
@@ -40,7 +46,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -50,9 +56,9 @@
                     <property name="geometry">
                         <rect>
                             <x>10</x>
-                            <y>60</y>
+                            <y>80</y>
                             <width>271</width>
-                            <height>81</height>
+                            <height>61</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_2">
@@ -79,7 +85,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -175,7 +181,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -236,7 +242,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -315,7 +321,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -361,7 +367,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>192</height>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -424,7 +430,7 @@
                     <x>310</x>
                     <y>10</y>
                     <width>501</width>
-                    <height>231</height>
+                    <height>261</height>
                 </rect>
             </property>
             <property name="selectionMode">
@@ -438,7 +444,7 @@
             <property name="geometry">
                 <rect>
                     <x>360</x>
-                    <y>250</y>
+                    <y>270</y>
                     <width>431</width>
                     <height>20</height>
                 </rect>
@@ -453,13 +459,40 @@
             <property name="geometry">
                 <rect>
                     <x>310</x>
-                    <y>280</y>
+                    <y>300</y>
                     <width>501</width>
                     <height>121</height>
                 </rect>
             </property>
         </widget>
     </widget>
-    <resources/>
+    <tabstops>
+        <tabstop>add_exm_login_text_box</tabstop>
+        <tabstop>add_exm_name_text_box</tabstop>
+        <tabstop>add_exm_button</tabstop>
+        <tabstop>add_param_name_text_box</tabstop>
+        <tabstop>add_param_val_text_box</tabstop>
+        <tabstop>add_param_button</tabstop>
+        <tabstop>add_disease_button</tabstop>
+        <tabstop>table</tabstop>
+        <tabstop>desc_table</tabstop>
+        <tabstop>add_date_begin_disease</tabstop>
+        <tabstop>add_is_end_disease</tabstop>
+        <tabstop>add_date_end_disease</tabstop>
+        <tabstop>add_desc_disease_text_box</tabstop>
+        <tabstop>add_login_text_box</tabstop>
+        <tabstop>add_name_disease_text_box</tabstop>
+        <tabstop>see_login_text_box</tabstop>
+        <tabstop>see_button</tabstop>
+        <tabstop>change_date_end_disease_text_box</tabstop>
+        <tabstop>change_button</tabstop>
+        <tabstop>appoint_name_disease_text_box</tabstop>
+        <tabstop>appoint_button</tabstop>
+        <tabstop>see_exm_login_text_box</tabstop>
+        <tabstop>see_exm_button</tabstop>
+    </tabstops>
+    <resources>
+        <include location="../../resource.qrc"/>
+    </resources>
     <connections/>
 </ui>

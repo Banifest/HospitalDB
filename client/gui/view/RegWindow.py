@@ -1,8 +1,9 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QWidget
+
+from client.gui.view.CloseInterface import CloseInterface
 
 
-class RegWindow(QWidget):
+class RegWindow(CloseInterface):
 
     def __init__(self, controller):
         self._controller = controller
