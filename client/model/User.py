@@ -42,9 +42,3 @@ class User:
             self.birthday = row[6]
         else:
             QueryMessage(301)
-
-
-    @staticmethod
-    def create_user(login: str, password: str, fio: str, gender: bool, zip: str):
-
-        pass

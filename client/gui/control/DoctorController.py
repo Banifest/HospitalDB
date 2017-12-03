@@ -15,6 +15,7 @@ class DoctorController:
         'examination': 3
     }
 
+    EXAMINATION_HEADER = ["Id", "Дата обследования", "Название обследования", ]
     DISEASE_HEADER = ["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"]
     DRAG_HEADER = ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
                    "Надо ли рецепт"]
@@ -43,6 +44,8 @@ class DoctorController:
     _see_login: str = ""
 
     _see_exm_login: str = ""
+    _see_exm_date_begin: str = ""
+    _see_exm_date_end: str = ""
 
     _appoint_id_disease: int = 1
     _appoint_name_drag: str = ""
@@ -116,6 +119,12 @@ class DoctorController:
     def set_appoint_name_drag(self, value):
         self._appoint_name_drag = value
 
+    def set_see_exm_date_begin(self, value):
+        self._see_exm_date_begin = value.toString('dd-MM-yyyy')
+
+    def set_see_exm_date_end(self, value):
+        self._see_exm_date_end = value.toString('dd-MM-yyyy')
+
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
         self.standard_out(self.DISEASE_HEADER,
@@ -138,20 +147,31 @@ class DoctorController:
                                   self.selected_id, self._change_date_end),
                               callback=self.select_disease_patient)
 
-
     def select_add_drag(self):
-        pass
+        if self.currentState == self.SELECT_STATE['disease'] and self.selected_row != -1:
+            self.additional_out(self.DRAG_HEADER,
+                                "EXEC [appoint_drag] {0}, '{1}'".format(
+                                    self.selected_id, self._appoint_name_drag),
+                                callback=self.select_drag)
 
     def select_add_emx(self):
         pass
 
     def select_add_param(self, id_):
-        self.additional_out(["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+        self.additional_out(self.DISEASE_HEADER,
                             "EXEC add_param '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                                 id_, self.login, self.password, self._param_name, self._param_val))
 
     def select_see_emx(self):
-        pass
+        self.standard_out(self.EXAMINATION_HEADER,
+                          "EXEC [get_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                              self._see_exm_login, self.login, self.password, self._see_exm_date_begin,
+                              self._see_exm_date_end
+                          ))
+
+    def select_drag(self):
+        self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
+            self.login, self.password, int(self._docWindow.table.item(self.selected_row, 0).text())))
 
     def __init__(self, _mainController, doctor: Doctor):
         self._mainController = _mainController
@@ -198,23 +218,15 @@ class DoctorController:
                 self._docWindow.desc_table.clearContents()
                 self._docWindow.desc_table.setRowCount(0)
 
-    def dml_out(self, cursor):
-        row = cursor.fetchone()
-        if not row:
-            QueryMessage(200)
-        elif row[0] != 0:
-            QueryMessage(row[0])
-        else:
-            self.connection.commit()
-
     def standard_out(self, header_titles: list, query: str, callback=None):
         self.thread = QueryThread(query, self.connection)
         self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, callback=callback))
         self.thread.start()
 
-    def additional_out(self, header_titles: list, query: str):
+    def additional_out(self, header_titles: list, query: str, callback=None):
         self.thread = QueryThread(query, self.connection)
-        self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, table=self._docWindow.desc_table))
+        self.thread.done.connect(lambda: self.out(header_titles, self.thread.cursor, table=self._docWindow.desc_table,
+                                                  callback=callback))
         self.thread.start()
 
     def change_additional(self, row_number: int, column_number: int):
@@ -224,5 +236,4 @@ class DoctorController:
         if self.currentState == self.SELECT_STATE['examination']:
             pass  # self.select_examination_param(int(self._docWindow.table.item(row_number, 0).text()))
         elif self.currentState == self.SELECT_STATE['disease']:
-            self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
-                self.login, self.password, int(self._docWindow.table.item(row_number, 0).text())))
+            self.select_drag()

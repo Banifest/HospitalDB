@@ -14,7 +14,7 @@
             <string>doctor_window</string>
         </property>
         <property name="windowIcon">
-            <iconset resource="../../img.qrc">
+            <iconset>
                 <normaloff>:/icon/resource/doc.png</normaloff>:/icon/resource/doc.png
             </iconset>
         </property>
@@ -34,7 +34,7 @@
                 </size>
             </property>
             <property name="currentIndex">
-                <number>0</number>
+                <number>4</number>
             </property>
             <property name="tabSpacing">
                 <number>6</number>
@@ -83,8 +83,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -179,8 +179,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -240,8 +240,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -251,7 +251,7 @@
                     <property name="geometry">
                         <rect>
                             <x>10</x>
-                            <y>10</y>
+                            <y>50</y>
                             <width>271</width>
                             <height>71</height>
                         </rect>
@@ -288,8 +288,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -301,21 +301,27 @@
                             <x>10</x>
                             <y>50</y>
                             <width>271</width>
-                            <height>81</height>
+                            <height>103</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_7">
                         <item row="1" column="0">
-                            <widget class="QPushButton" name="see_exm_button">
-                                <property name="text">
-                                    <string>Просмотреть</string>
-                                </property>
-                            </widget>
+                            <widget class="QDateEdit" name="see_emx_date_begin"/>
                         </item>
-                        <item row="0" column="0">
+                        <item row="1" column="1">
+                            <widget class="QDateEdit" name="see_emx_date_end"/>
+                        </item>
+                        <item row="0" column="0" colspan="2">
                             <widget class="QLineEdit" name="see_exm_login_text_box">
                                 <property name="placeholderText">
                                     <string>Логин пациента</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="0" colspan="2">
+                            <widget class="QPushButton" name="see_exm_button">
+                                <property name="text">
+                                    <string>Просмотреть</string>
                                 </property>
                             </widget>
                         </item>
@@ -327,8 +333,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -373,8 +379,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>98</width>
-                        <height>28</height>
+                        <width>291</width>
+                        <height>222</height>
                     </rect>
                 </property>
                 <attribute name="label">
