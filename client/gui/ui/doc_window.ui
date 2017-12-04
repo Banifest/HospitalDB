@@ -7,7 +7,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>817</width>
-                <height>475</height>
+                <height>492</height>
             </rect>
         </property>
         <property name="windowTitle">
@@ -1244,7 +1244,7 @@
                     <x>10</x>
                     <y>10</y>
                     <width>301</width>
-                    <height>451</height>
+                    <height>471</height>
                 </rect>
             </property>
             <property name="minimumSize">
@@ -1254,7 +1254,7 @@
                 </size>
             </property>
             <property name="currentIndex">
-                <number>6</number>
+                <number>7</number>
             </property>
             <property name="tabSpacing">
                 <number>6</number>
@@ -1265,7 +1265,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1304,7 +1304,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1400,7 +1400,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1461,7 +1461,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1509,7 +1509,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1561,7 +1561,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1619,7 +1619,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>291</width>
-                        <height>252</height>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1675,6 +1675,38 @@
                     </layout>
                 </widget>
             </widget>
+            <widget class="QWidget" name="page_7">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>291</width>
+                        <height>245</height>
+                    </rect>
+                </property>
+                <attribute name="label">
+                    <string>Получить статистику</string>
+                </attribute>
+                <widget class="QWidget" name="gridLayoutWidget_8">
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>10</y>
+                            <width>271</width>
+                            <height>221</height>
+                        </rect>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_8">
+                        <item row="0" column="0">
+                            <widget class="QPushButton" name="get_stat_by_all_time">
+                                <property name="text">
+                                    <string>Получить статистику за всё время</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
+            </widget>
         </widget>
         <widget class="QTableWidget" name="table">
             <property name="geometry">
@@ -1682,7 +1714,7 @@
                     <x>330</x>
                     <y>10</y>
                     <width>481</width>
-                    <height>261</height>
+                    <height>271</height>
                 </rect>
             </property>
             <property name="selectionMode">
@@ -1696,7 +1728,7 @@
             <property name="geometry">
                 <rect>
                     <x>360</x>
-                    <y>270</y>
+                    <y>290</y>
                     <width>431</width>
                     <height>20</height>
                 </rect>
@@ -1711,7 +1743,7 @@
             <property name="geometry">
                 <rect>
                     <x>330</x>
-                    <y>300</y>
+                    <y>320</y>
                     <width>481</width>
                     <height>161</height>
                 </rect>

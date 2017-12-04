@@ -13,14 +13,23 @@ class DoctorController:
         'none': 0,
         'disease': 1,
         'drag': 2,
-        'examination': 3
+        'examination': 3,
+        'stat': 4
     }
 
-    PARAM_HEADER = ["Имя заболеввания", "Название параметра", "Значение параметра"]
-    EXAMINATION_HEADER = ["Id", "Дата обследования", "Название обследования", ]
-    DISEASE_HEADER = ["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"]
-    DRAG_HEADER = ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
-                   "Надо ли рецепт"]
+    HEADERS = {
+        'stat': ["Имя заболевания", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                 "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+
+        'param': ["Имя заболеввания", "Название параметра", "Значение параметра"],
+
+        'examination': ["Id", "Дата обследования", "Название обследования", ],
+
+        'disease': ["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"],
+
+        'drag': ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
+                 "Надо ли рецепт"]
+    }
 
     selected_row = -1
     selected_column = -1
@@ -133,13 +142,13 @@ class DoctorController:
 
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
-        self.standard_out(self.DISEASE_HEADER,
+        self.standard_out(self.HEADERS['disease'],
                           "EXEC SELECT_DISEASE '{0}', '{1}', '{2}'".format(
                               self._see_login, self.login, self.password))
 
     def select_add_disease_patient(self):
         self._docWindow.see_login_text_box.setText(self._add_login)
-        self.standard_out(self.DISEASE_HEADER,
+        self.standard_out(self.HEADERS['disease'],
                           "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'".format(
                               self._add_login, self.login, self.password, self._add_name_disease,
                               self._add_date_being, self._add_date_end, self._add_decs_disease),
@@ -148,14 +157,14 @@ class DoctorController:
 
     def select_change_disease_patient(self):
         if self.currentState == self.SELECT_STATE['disease'] and self.selected_row != -1:
-            self.standard_out(self.DISEASE_HEADER,
+            self.standard_out(self.HEADERS['disease'],
                               "EXEC [change_disease] {0}, '{1}'".format(
                                   self.selected_id, self._change_date_end),
                               callback=self.select_disease_patient)
 
     def select_add_drag(self):
         if self.currentState == self.SELECT_STATE['disease'] and self.selected_row != -1:
-            self.additional_out(self.DRAG_HEADER,
+            self.additional_out(self.HEADERS['drag'],
                                 "EXEC [appoint_drag] {0}, '{1}'".format(
                                     self.selected_id, self._appoint_name_drag),
                                 callback=self.select_drag)
@@ -164,14 +173,14 @@ class DoctorController:
         self._docWindow.see_exm_login_text_box.setText(self._exm_login)
         self._docWindow.see_exm_date_begin.setDate(QDate(1800, 1, 1))
         self._docWindow.see_exm_date_end.setDate(QDate(3000, 1, 1))
-        self.standard_out(self.EXAMINATION_HEADER,
+        self.standard_out(self.HEADERS['examination'],
                           "EXEC [add_examination] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                               self.login, self.password, self._exm_login, self._exm_name, self._exm_date),
                           callback=self.select_see_emx)
 
     def select_add_param(self):
         if self.currentState == self.SELECT_STATE['examination'] and self.selected_row != -1:
-            self.standard_out(self.DISEASE_HEADER,
+            self.standard_out(self.HEADERS['disease'],
                               "EXEC [add_param] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                                   self.selected_id, self.login, self.password, self._param_name, self._param_val),
                               callback=self.select_get_param)
@@ -179,14 +188,14 @@ class DoctorController:
             QueryMessage(300)
 
     def select_get_param(self):
-        self.additional_out(self.PARAM_HEADER,
+        self.additional_out(self.HEADERS['param'],
                             "EXEC [get_doctor_examination_param] '{0}', '{1}', {2}".format(
                                 self.login, self.password, self.selected_id
                             ))
 
     def select_see_emx(self):
         self.currentState = self.SELECT_STATE['examination']
-        self.standard_out(self.EXAMINATION_HEADER,
+        self.standard_out(self.HEADERS['examination'],
                           "EXEC [get_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                               self._see_exm_login, self.login, self.password, self._see_exm_date_begin,
                               self._see_exm_date_end
@@ -194,15 +203,20 @@ class DoctorController:
 
     def select_see_exclude_emx(self):
         self.currentState = self.SELECT_STATE['examination']
-        self.standard_out(self.EXAMINATION_HEADER,
+        self.standard_out(self.HEADERS['examination'],
                           "EXEC [get_exclude_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                               self._see_exm_login, self.login, self.password, self._see_exm_date_begin,
                               self._see_exm_date_end
                           ))
 
     def select_drag(self):
-        self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
+        self.additional_out(self.HEADERS['drag'], "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
             self.login, self.password, int(self._docWindow.table.item(self.selected_row, 0).text())))
+
+    def select_stat_by_all_time(self):
+        self.currentState = self.SELECT_STATE['stat']
+        self.standard_out(self.HEADERS['stat'],
+                          "EXEC get_statistic_by_all_time")
 
     def __init__(self, _mainController, doctor: Doctor):
         self._mainController = _mainController

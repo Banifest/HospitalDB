@@ -43,6 +43,7 @@ class DoctorWindow(CloseInterface):
         self.add_param_button.clicked.connect(self._controller.select_add_param)
         self.see_exm_button.clicked.connect(self._controller.select_see_emx)
         self.see_exclude_exm_button.clicked.connect(self._controller.select_see_exclude_emx)
+        self.get_stat_by_all_time.clicked.connect(self._controller.select_stat_by_all_time)
 
         self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a, b))
 
