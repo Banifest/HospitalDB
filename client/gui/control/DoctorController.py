@@ -89,10 +89,10 @@ class DoctorController:
         self._exm_name = value
 
     def set_param_name(self, value):
-        self._exm_login = value
+        self._param_name = value
 
     def set_param_val(self, value):
-        self._exm_name = value
+        self._param_val = value
 
     def set_see_login(self, value):
         self._see_login = value
@@ -170,12 +170,19 @@ class DoctorController:
                           callback=self.select_see_emx)
 
     def select_add_param(self):
-        self.standard_out(self.DISEASE_HEADER,
-                          "EXEC [add_param] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
-                              self.selected_id, self.login, self.password, self._param_name, self._param_val))
+        if self.currentState == self.SELECT_STATE['examination'] and self.selected_row != -1:
+            self.standard_out(self.DISEASE_HEADER,
+                              "EXEC [add_param] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                                  self.selected_id, self.login, self.password, self._param_name, self._param_val),
+                              callback=self.select_get_param)
+        else:
+            QueryMessage(300)
 
     def select_get_param(self):
-        self.additional_out(self.PARAM_HEADER, )
+        self.additional_out(self.PARAM_HEADER,
+                            "EXEC [get_doctor_examination_param] '{0}', '{1}', {2}".format(
+                                self.login, self.password, self.selected_id
+                            ))
 
     def select_see_emx(self):
         self.currentState = self.SELECT_STATE['examination']
@@ -186,6 +193,7 @@ class DoctorController:
                           ))
 
     def select_see_exclude_emx(self):
+        self.currentState = self.SELECT_STATE['examination']
         self.standard_out(self.EXAMINATION_HEADER,
                           "EXEC [get_exclude_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                               self._see_exm_login, self.login, self.password, self._see_exm_date_begin,
@@ -257,6 +265,6 @@ class DoctorController:
         self.selected_column = column_number
         self.selected_id = int(self._docWindow.table.item(row_number, 0).text())
         if self.currentState == self.SELECT_STATE['examination']:
-            pass  # self.select_examination_param(int(self._docWindow.table.item(row_number, 0).text()))
+            self.select_get_param()
         elif self.currentState == self.SELECT_STATE['disease']:
             self.select_drag()
