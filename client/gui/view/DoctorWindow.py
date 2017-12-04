@@ -25,8 +25,8 @@ class DoctorWindow(CloseInterface):
         self.appoint_name_disease_text_box.textChanged.connect(self._controller.set_appoint_name_drag)
 
         self.see_exm_login_text_box.textChanged.connect(self._controller.set_see_exm_login)
-        self.see_emx_date_begin.userDateChanged.connect(self._controller.set_see_exm_date_begin)
-        self.see_emx_date_end.userDateChanged.connect(self._controller.set_see_exm_date_end)
+        self.see_exm_date_begin.userDateChanged.connect(self._controller.set_see_exm_date_begin)
+        self.see_exm_date_end.userDateChanged.connect(self._controller.set_see_exm_date_end)
 
         self.add_exm_login_text_box.textChanged.connect(self._controller.set_emx_login)
         self.add_exm_name_text_box.textChanged.connect(self._controller.set_emx_name)
@@ -41,6 +41,7 @@ class DoctorWindow(CloseInterface):
         self.add_exm_button.clicked.connect(self._controller.select_add_emx)
         self.add_param_button.clicked.connect(self._controller.select_add_param)
         self.see_exm_button.clicked.connect(self._controller.select_see_emx)
+        self.see_exclude_exm_button.clicked.connect(self._controller.select_see_exclude_emx)
 
         self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a, b))
 

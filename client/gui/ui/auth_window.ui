@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>201</width>
-    <height>118</height>
+       <width>281</width>
+       <height>135</height>
    </rect>
   </property>
      <property name="sizePolicy">
@@ -20,7 +20,7 @@
       <string>Авторизация</string>
   </property>
      <property name="windowIcon">
-         <iconset resource="../../img.qrc">
+         <iconset>
              <normaloff>:/icon/resource/auth.png</normaloff>:/icon/resource/auth.png
          </iconset>
   </property>
@@ -30,8 +30,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>201</width>
-      <height>121</height>
+         <width>281</width>
+         <height>131</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -51,7 +51,7 @@
         <string>Вход</string>
        </property>
           <property name="icon">
-              <iconset resource="../../img.qrc">
+              <iconset>
                   <normaloff>:/icon/resource/auth.png</normaloff>:/icon/resource/auth.png
               </iconset>
           </property>

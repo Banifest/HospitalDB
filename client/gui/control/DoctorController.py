@@ -169,6 +169,13 @@ class DoctorController:
                               self._see_exm_date_end
                           ))
 
+    def select_see_exclude_emx(self):
+        self.standard_out(self.EXAMINATION_HEADER,
+                          "EXEC [get_exclude_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                              self._see_exm_login, self.login, self.password, self._see_exm_date_begin,
+                              self._see_exm_date_end
+                          ))
+
     def select_drag(self):
         self.additional_out(self.DRAG_HEADER, "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
             self.login, self.password, int(self._docWindow.table.item(self.selected_row, 0).text())))

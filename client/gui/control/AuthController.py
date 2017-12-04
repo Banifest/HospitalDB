@@ -3,8 +3,8 @@ from client.model.User import User
 
 
 class AuthController:
-    login: str
-    password: str
+    login: str = ""
+    password: str = ""
 
     def __init__(self, _mainController, connection):
         self._mainController = _mainController

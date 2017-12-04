@@ -7,7 +7,7 @@
                 <x>0</x>
                 <y>0</y>
                 <width>817</width>
-                <height>429</height>
+                <height>464</height>
             </rect>
         </property>
         <property name="windowTitle">
@@ -23,8 +23,8 @@
                 <rect>
                     <x>10</x>
                     <y>10</y>
-                    <width>291</width>
-                    <height>411</height>
+                    <width>301</width>
+                    <height>441</height>
                 </rect>
             </property>
             <property name="minimumSize">
@@ -34,7 +34,7 @@
                 </size>
             </property>
             <property name="currentIndex">
-                <number>4</number>
+                <number>1</number>
             </property>
             <property name="tabSpacing">
                 <number>6</number>
@@ -44,8 +44,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -83,8 +83,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -96,7 +96,7 @@
                             <x>10</x>
                             <y>0</y>
                             <width>272</width>
-                            <height>216</height>
+                            <height>231</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
@@ -179,8 +179,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -240,8 +240,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -288,8 +288,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -306,10 +306,10 @@
                     </property>
                     <layout class="QGridLayout" name="gridLayout_7">
                         <item row="1" column="0">
-                            <widget class="QDateEdit" name="see_emx_date_begin"/>
+                            <widget class="QDateEdit" name="see_exm_date_begin"/>
                         </item>
                         <item row="1" column="1">
-                            <widget class="QDateEdit" name="see_emx_date_end"/>
+                            <widget class="QDateEdit" name="see_exm_date_end"/>
                         </item>
                         <item row="0" column="0" colspan="2">
                             <widget class="QLineEdit" name="see_exm_login_text_box">
@@ -318,10 +318,17 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="3" column="0" colspan="2">
+                        <item row="3" column="0">
                             <widget class="QPushButton" name="see_exm_button">
                                 <property name="text">
-                                    <string>Просмотреть</string>
+                                    <string>Включая</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="3" column="1">
+                            <widget class="QPushButton" name="see_exclude_exm_button">
+                                <property name="text">
+                                    <string>Исключая</string>
                                 </property>
                             </widget>
                         </item>
@@ -333,8 +340,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -379,8 +386,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>222</height>
+                        <width>301</width>
+                        <height>252</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -440,9 +447,9 @@
         <widget class="QTableWidget" name="table">
             <property name="geometry">
                 <rect>
-                    <x>310</x>
+                    <x>330</x>
                     <y>10</y>
-                    <width>501</width>
+                    <width>481</width>
                     <height>261</height>
                 </rect>
             </property>
@@ -471,10 +478,10 @@
         <widget class="QTableWidget" name="desc_table">
             <property name="geometry">
                 <rect>
-                    <x>310</x>
+                    <x>330</x>
                     <y>300</y>
-                    <width>501</width>
-                    <height>121</height>
+                    <width>481</width>
+                    <height>161</height>
                 </rect>
             </property>
         </widget>

@@ -23,8 +23,9 @@ class MainController:
 
     def __init__(self):
         App = QApplication(sys.argv)
+        App.setStyleSheet(open("stylesheet.qcc", "r").read())
         self.conn = connection_to_db('test', '123')
-        #        self.conn = connection_to_db(username='reg', password='reg')
+        # self.conn = connection_to_db(username='reg', password='reg')
         self._authController = AuthController(self, self.conn)
         App.exec()
 
