@@ -68,6 +68,9 @@ class DoctorController:
     _param_name: str = ""
     _param_val: str = ""
 
+    _get_stat_date: str = "01-01-2000"
+    _get_stat_index: int = "220000"
+
     @property
     def cursor(self):
         # noinspection PyProtectedMember
@@ -139,6 +142,12 @@ class DoctorController:
 
     def set_exm_date(self, value):
         self._exm_date = value.toString('dd-MM-yyyy')
+
+    def set_get_stat_index(self, value):
+        self._get_stat_index = value
+
+    def set_get_stat_date(self, value):
+        self._get_stat_date = value.toString('dd-MM-yyyy')
 
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
@@ -217,6 +226,27 @@ class DoctorController:
         self.currentState = self.SELECT_STATE['stat']
         self.standard_out(self.HEADERS['stat'],
                           "EXEC get_statistic_by_all_time")
+
+    def select_stat_by_index(self):
+        self.currentState = self.SELECT_STATE['stat']
+        self.standard_out(self.HEADERS['stat'],
+                          "EXEC get_statistic_by_index {0}".format(
+                              self._get_stat_index
+                          ))
+
+    def select_stat_by_year(self):
+        self.currentState = self.SELECT_STATE['stat']
+        self.standard_out(self.HEADERS['stat'],
+                          "EXEC get_statistic_by_year '{0}'".format(
+                              self._get_stat_date
+                          ))
+
+    def select_stat_by_index_year(self):
+        self.currentState = self.SELECT_STATE['stat']
+        self.standard_out(self.HEADERS['stat'],
+                          "EXEC get_statistic_by_index_year {0}, '{1}'".format(
+                              self._get_stat_index, self._get_stat_date
+                          ))
 
     def __init__(self, _mainController, doctor: Doctor):
         self._mainController = _mainController

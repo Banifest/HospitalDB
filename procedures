@@ -68,3 +68,21 @@ AS
   FROM #tmp;
 
   DROP TABLE #tmp;
+  --------------------------------------------------------------
+  CREATE PROCEDURE [dbo].get_statistic_by_all_time
+  AS
+    SELECT *
+    FROM (
+           SELECT
+             name_disease,
+               YearMounth = DATENAME(MONTH, begin_date)
+           FROM Diseases
+         ) t
+         PIVOT (
+           COUNT(YearMounth)
+         FOR YearMounth
+         IN (
+             January, February, March, April, May, June, July, August, September, October, November, December
+         )
+         ) p
+--------------------------------------------------------------

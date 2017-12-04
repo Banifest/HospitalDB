@@ -1704,6 +1704,47 @@
                                 </property>
                             </widget>
                         </item>
+                        <item row="3" column="0">
+                            <widget class="QDateEdit" name="get_stat_date">
+                                <property name="currentSection">
+                                    <enum>QDateTimeEdit::YearSection</enum>
+                                </property>
+                                <property name="displayFormat">
+                                    <string>yyyy</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QPushButton" name="get_stat_by_index_year">
+                                <property name="text">
+                                    <string>Получить статистику по индексу и году</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QPushButton" name="get_stat_by_year">
+                                <property name="text">
+                                    <string>Получить статистику по году</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QPushButton" name="get_stat_by_index">
+                                <property name="text">
+                                    <string>Получить статистику по индексу больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="1" column="0">
+                            <widget class="QSpinBox" name="get_stat_index_text_box">
+                                <property name="maximum">
+                                    <number>999999</number>
+                                </property>
+                                <property name="value">
+                                    <number>220000</number>
+                                </property>
+                            </widget>
+                        </item>
                     </layout>
                 </widget>
             </widget>

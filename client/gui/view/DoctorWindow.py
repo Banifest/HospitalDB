@@ -35,6 +35,9 @@ class DoctorWindow(CloseInterface):
         self.add_param_name_text_box.textChanged.connect(self._controller.set_param_name)
         self.add_param_val_text_box.textChanged.connect(self._controller.set_param_val)
 
+        self.get_stat_index_text_box.valueChanged.connect(self._controller.set_get_stat_index)
+        self.get_stat_date.userDateChanged.connect(self._controller.set_get_stat_date)
+
         self.see_button.clicked.connect(self._controller.select_disease_patient)
         self.add_disease_button.clicked.connect(self._controller.select_add_disease_patient)
         self.change_button.clicked.connect(self._controller.select_change_disease_patient)
@@ -44,6 +47,9 @@ class DoctorWindow(CloseInterface):
         self.see_exm_button.clicked.connect(self._controller.select_see_emx)
         self.see_exclude_exm_button.clicked.connect(self._controller.select_see_exclude_emx)
         self.get_stat_by_all_time.clicked.connect(self._controller.select_stat_by_all_time)
+        self.get_stat_by_index.clicked.connect(self._controller.select_stat_by_index)
+        self.get_stat_by_year.clicked.connect(self._controller.select_stat_by_year)
+        self.get_stat_by_index_year.clicked.connect(self._controller.select_stat_by_index_year)
 
         self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a, b))
 
