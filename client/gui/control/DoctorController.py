@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
+from PyQt5.QtCore import QDate
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QDateEdit
 
 from client.gui.view.DoctorWindow import DoctorWindow
 from client.model.Doctor import Doctor
@@ -15,6 +16,7 @@ class DoctorController:
         'examination': 3
     }
 
+    PARAM_HEADER = ["Имя заболеввания", "Название параметра", "Значение параметра"]
     EXAMINATION_HEADER = ["Id", "Дата обследования", "Название обследования", ]
     DISEASE_HEADER = ["Id", "Имя заболевания", "Дата начала", "Дата конца", "Описание болезни"]
     DRAG_HEADER = ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
@@ -39,19 +41,20 @@ class DoctorController:
 
     _change_login: str = ""
     _change_id_disease: int = 1
-    _change_date_end: str = ""
+    _change_date_end: str = "01-01-2000"
 
     _see_login: str = ""
 
     _see_exm_login: str = ""
-    _see_exm_date_begin: str = ""
-    _see_exm_date_end: str = ""
+    _see_exm_date_begin: str = "01-01-2000"
+    _see_exm_date_end: str = "01-01-2000"
 
     _appoint_id_disease: int = 1
     _appoint_name_drag: str = ""
 
-    _emx_login: str = ""
-    _emx_name: str = ""
+    _exm_login: str = ""
+    _exm_name: str = ""
+    _exm_date: str = '01-01-2000'
 
     _param_name: str = ""
     _param_val: str = ""
@@ -80,16 +83,16 @@ class DoctorController:
         self._see_exm_login = value
 
     def set_emx_login(self, value):
-        self._emx_login = value
+        self._exm_login = value
 
     def set_emx_name(self, value):
-        self._emx_name = value
+        self._exm_name = value
 
     def set_param_name(self, value):
-        self._emx_login = value
+        self._exm_login = value
 
     def set_param_val(self, value):
-        self._emx_name = value
+        self._exm_name = value
 
     def set_see_login(self, value):
         self._see_login = value
@@ -125,6 +128,9 @@ class DoctorController:
     def set_see_exm_date_end(self, value):
         self._see_exm_date_end = value.toString('dd-MM-yyyy')
 
+    def set_exm_date(self, value):
+        self._exm_date = value.toString('dd-MM-yyyy')
+
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
         self.standard_out(self.DISEASE_HEADER,
@@ -155,14 +161,24 @@ class DoctorController:
                                 callback=self.select_drag)
 
     def select_add_emx(self):
-        pass
+        self._docWindow.see_exm_login_text_box.setText(self._exm_login)
+        self._docWindow.see_exm_date_begin.setDate(QDate(1800, 1, 1))
+        self._docWindow.see_exm_date_end.setDate(QDate(3000, 1, 1))
+        self.standard_out(self.EXAMINATION_HEADER,
+                          "EXEC [add_examination] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                              self.login, self.password, self._exm_login, self._exm_name, self._exm_date),
+                          callback=self.select_see_emx)
 
-    def select_add_param(self, id_):
-        self.additional_out(self.DISEASE_HEADER,
-                            "EXEC add_param '{0}', '{1}', '{2}', '{3}', '{4}'".format(
-                                id_, self.login, self.password, self._param_name, self._param_val))
+    def select_add_param(self):
+        self.standard_out(self.DISEASE_HEADER,
+                          "EXEC [add_param] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
+                              self.selected_id, self.login, self.password, self._param_name, self._param_val))
+
+    def select_get_param(self):
+        self.additional_out(self.PARAM_HEADER, )
 
     def select_see_emx(self):
+        self.currentState = self.SELECT_STATE['examination']
         self.standard_out(self.EXAMINATION_HEADER,
                           "EXEC [get_doctor_examinations] '{0}', '{1}', '{2}', '{3}', '{4}'".format(
                               self._see_exm_login, self.login, self.password, self._see_exm_date_begin,

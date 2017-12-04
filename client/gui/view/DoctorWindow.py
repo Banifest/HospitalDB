@@ -30,6 +30,7 @@ class DoctorWindow(CloseInterface):
 
         self.add_exm_login_text_box.textChanged.connect(self._controller.set_emx_login)
         self.add_exm_name_text_box.textChanged.connect(self._controller.set_emx_name)
+        self.add_exm_date.userDateChanged.connect(self._controller.set_exm_date)
 
         self.add_param_name_text_box.textChanged.connect(self._controller.set_param_name)
         self.add_param_val_text_box.textChanged.connect(self._controller.set_param_val)

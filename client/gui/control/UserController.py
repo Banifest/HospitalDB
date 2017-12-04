@@ -28,11 +28,11 @@ class UserController:
     _date_end_examination = '01-01-2000'
     _id_examination = 1
 
-    PARAM_HEADER = ["Название характеристики", "Значение характеристики"]
+    PARAM_HEADER = ["Название обследования", "Название характеристики", "Значение характеристики"]
     DISEASE_HEADER = ["Id", "Имя болезни", "Дата начала", "Дата конца"]
     DRAG_HEADER = ["Id", "Название лекарства", "Цена", "Срок годности", "Описание", "Масса", "Поставшик",
                    "Надо ли рецепт"]
-    EXAMINATION_HEADER = ["Id", "Название обследования", "Имя врача", "Дата обследования"]
+    EXAMINATION_HEADER = ["Id", "Название обследования", "Дата обследования", "Имя врача"]
 
     @property
     def cursor(self):
@@ -121,6 +121,7 @@ class UserController:
         table.setColumnCount(len(header_titles))
         table.setHorizontalHeaderLabels(header_titles)
         row = cursor.fetchone()
+
         if not row:
             QueryMessage(399)
             return
@@ -132,12 +133,20 @@ class UserController:
             for x in range(len(header_titles)):
                 if str(row[x]) == 'True' or str(row[x]) == 'False':
                     table.setItem(row_count, x, QTableWidgetItem("Да" if row[7] else "Нет"))
+                elif str(row[x]) == 'None':
+                    table.setItem(row_count, x, QTableWidgetItem("-"))
                 else:
                     table.setItem(row_count, x, QTableWidgetItem(str(row[x])))
             row_count += 1
             row = cursor.fetchone()
 
         table.resizeColumnsToContents()
+
+        if table == self._userWindow.table:
+            self.selected_row = -1
+            self.selected_column = -1
+            self._userWindow.desc_table.clearContents()
+            self._userWindow.desc_table.setRowCount(0)
 
     def standard_out(self, header_titles: list, query: str):
         self.thread = QueryThread(query, self.connection)
