@@ -49,7 +49,7 @@ class DoctorWindow(CloseInterface):
         self.get_stat_by_all_time.clicked.connect(self._controller.select_stat_by_all_time)
         self.get_stat_by_index.clicked.connect(self._controller.select_stat_by_index)
         self.get_stat_by_year.clicked.connect(self._controller.select_stat_by_year)
-        self.get_stat_by_index_year.clicked.connect(self._controller.select_stat_by_index_yearh)
+        self.get_stat_by_index_year.clicked.connect(self._controller.select_stat_by_index_year)
 
         self.table.cellClicked.connect(lambda a, b: self._controller.change_additional(a, b))
 
