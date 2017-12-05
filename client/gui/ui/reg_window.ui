@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>244</width>
-       <height>452</height>
+       <width>267</width>
+       <height>477</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1243,8 +1243,8 @@
     <rect>
         <x>10</x>
         <y>10</y>
-        <width>231</width>
-        <height>431</height>
+        <width>251</width>
+        <height>461</height>
     </rect>
    </property>
             <property name="sizePolicy">
@@ -1254,15 +1254,15 @@
                 </sizepolicy>
             </property>
             <property name="currentIndex">
-                <number>0</number>
+                <number>3</number>
             </property>
             <widget class="QWidget" name="page_2">
                 <property name="geometry">
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>221</width>
-                        <height>286</height>
+                        <width>241</width>
+                        <height>316</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1273,8 +1273,8 @@
                         <rect>
                             <x>10</x>
                             <y>30</y>
-                            <width>201</width>
-                            <height>201</height>
+                            <width>221</width>
+                            <height>237</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0">
@@ -1359,8 +1359,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>221</width>
-                        <height>286</height>
+                        <width>241</width>
+                        <height>316</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1370,8 +1370,8 @@
                     <property name="geometry">
                         <rect>
                             <x>10</x>
-                            <y>0</y>
-                            <width>211</width>
+                            <y>10</y>
+                            <width>221</width>
                             <height>257</height>
                         </rect>
                     </property>
@@ -1431,8 +1431,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>221</width>
-                        <height>286</height>
+                        <width>241</width>
+                        <height>316</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1443,8 +1443,8 @@
                         <rect>
                             <x>10</x>
                             <y>0</y>
-                            <width>211</width>
-                            <height>280</height>
+                            <width>221</width>
+                            <height>311</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
@@ -1534,8 +1534,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>221</width>
-                        <height>286</height>
+                        <width>241</width>
+                        <height>316</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1545,9 +1545,9 @@
                     <property name="geometry">
                         <rect>
                             <x>10</x>
-                            <y>50</y>
-                            <width>211</width>
-                            <height>91</height>
+                            <y>70</y>
+                            <width>221</width>
+                            <height>95</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_2">
@@ -1568,7 +1568,7 @@
                         <item row="2" column="0">
                             <widget class="QLineEdit" name="change_login_text_box">
                                 <property name="placeholderText">
-                                    <string>login пользователя</string>
+                                    <string>Логин пользователя</string>
                                 </property>
                             </widget>
                         </item>
@@ -1580,8 +1580,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>221</width>
-                        <height>286</height>
+                        <width>241</width>
+                        <height>316</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1592,7 +1592,7 @@
                         <rect>
                             <x>10</x>
                             <y>70</y>
-                            <width>191</width>
+                            <width>221</width>
                             <height>101</height>
                         </rect>
                     </property>

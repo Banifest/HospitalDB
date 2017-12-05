@@ -64,8 +64,8 @@ class RegController:
     def set_add_doctor_birthday(self, value):
         self.add_doctor_birthday = value.toString('dd-MM-yyyy')
 
-    def set_add_doctor_description(self, value: str):
-        self.add_doctor_description = value
+    def set_add_doctor_description(self):
+        self.add_doctor_description = self._regWindow.add_discription_doctor_text_box.toPlainText()
 
     def set_login(self, value: str):
         self.patient_login = value
