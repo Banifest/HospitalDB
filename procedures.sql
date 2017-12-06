@@ -806,3 +806,38 @@ AS
 	WHERE Users.type=3 and Doctors.user_id=Users.id and DoctorsHospitals.doctor_id = Doctors.id
 	and Hospitals.id = DoctorsHospitals.hospital_id and Users.fio=@fio and Hospitals.zip=@zip;
 -------------------------------------------------------------
+CREATE PROCEDURE EXPORT_HOSPITALS
+AS
+	SELECT address, zip, phone, main_doctor
+	FROM Hospitals
+	FOR XML PATH('List'), ROOT('Root');
+---------------------------------------------------------------
+CREATE PROCEDURE IMPORT_HOSPITALS
+	@xml xml
+AS
+	DECLARE temp_cursor cursor local read_only for
+	SELECT
+	Tbl.Col.value('address[1]', 'nvarchar(50)') AS address,
+	Tbl.Col.value('zip[1]', 'int') AS zip,
+	Tbl.Col.value('phone[1]', 'nvarchar(15)') AS phone,
+	Tbl.Col.value('main_doctor[1]', 'int') AS main_doctor
+	FROM   @xml.nodes('//List') Tbl(Col);
+
+	DECLARE @address nvarchar(50);
+	DECLARE @zip int;
+	DECLARE @phone nvarchar(15);
+	DECLARE @main_doctor int;
+
+	open temp_cursor;
+
+	fetch next from temp_cursor into @address, @zip, @phone, @main_doctor;
+
+	while @@FETCH_STATUS = 0
+	begin
+		INSERT INTO Hospitals
+		SELECT @address, @zip, @phone, @main_doctor
+		WHERE NOT EXISTS(SELECT * FROM Hospitals WHERE @zip=Hospitals.zip);
+
+		fetch next from temp_cursor into @address, @zip, @phone, @main_doctor;
+	end;
+	SELECT 0;
