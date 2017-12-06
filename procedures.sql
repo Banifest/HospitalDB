@@ -781,4 +781,28 @@ AS
 	select 204;
 GO
 -------------------------------------------------------------
+CREATE PROCEDURE [dbo].get_time_work_by_zip
+	@zip int
+AS
+	SELECT Users.fio, DoctorsHospitals.time_begin_working, DoctorsHospitals.time_end_working, Hospitals.zip
+	FROM  Users, Hospitals, Doctors, DoctorsHospitals
+	WHERE Users.type=3 and Doctors.user_id=Users.id and DoctorsHospitals.doctor_id = Doctors.id
+	and Hospitals.id = DoctorsHospitals.hospital_id and Hospitals.zip=@zip;
+-------------------------------------------------------------
+CREATE PROCEDURE [dbo].get_time_work_by_fio
+	@fio nvarchar(50)
+AS
+	SELECT Users.fio, DoctorsHospitals.time_begin_working, DoctorsHospitals.time_end_working, Hospitals.zip
+	FROM  Users, Hospitals, Doctors, DoctorsHospitals
+	WHERE Users.type=3 and Doctors.user_id=Users.id and DoctorsHospitals.doctor_id = Doctors.id
+	and Hospitals.id = DoctorsHospitals.hospital_id and Users.fio=@fio;
+-------------------------------------------------------------
+CREATE PROCEDURE [dbo].get_time_work_by_zip_fio
+	@zip int,
+	@fio nvarchar(50)
+AS
+	SELECT Users.fio, DoctorsHospitals.time_begin_working, DoctorsHospitals.time_end_working, Hospitals.zip
+	FROM  Users, Hospitals, Doctors, DoctorsHospitals
+	WHERE Users.type=3 and Doctors.user_id=Users.id and DoctorsHospitals.doctor_id = Doctors.id
+	and Hospitals.id = DoctorsHospitals.hospital_id and Users.fio=@fio and Hospitals.zip=@zip;
 -------------------------------------------------------------
