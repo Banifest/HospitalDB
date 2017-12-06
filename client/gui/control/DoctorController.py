@@ -152,7 +152,7 @@ class DoctorController:
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
         self.standard_out(self.HEADERS['disease'],
-                          "EXEC SELECT_DISEASE '{0}', '{1}', '{2}'".format(
+                          "EXEC select_disease '{0}', '{1}', '{2}'".format(
                               self._see_login, self.login, self.password))
 
     def select_add_disease_patient(self):
@@ -219,7 +219,8 @@ class DoctorController:
                           ))
 
     def select_drag(self):
-        self.additional_out(self.HEADERS['drag'], "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
+        self.additional_out(self.HEADERS['drag'],
+                            "EXEC [get_drags_by_disease_doctor] '{0}', '{1}', {2};".format(
             self.login, self.password, int(self._docWindow.table.item(self.selected_row, 0).text())))
 
     def select_stat_by_all_time(self):
