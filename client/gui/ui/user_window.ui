@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Patient's information</string>
+      <string>Информация о пациенте</string>
   </property>
      <property name="windowIcon">
          <iconset>
@@ -1369,8 +1369,8 @@
                  <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>221</width>
-                     <height>247</height>
+                     <width>100</width>
+                     <height>30</height>
                  </rect>
              </property>
              <attribute name="label">

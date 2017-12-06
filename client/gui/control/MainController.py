@@ -43,6 +43,7 @@ class MainController:
 
     def create_info_window(self):
         self._infoController = InfoController(self)
+        self._authController.off_enabled()
 
     def create_doctor_window(self, doctor_user: User):
         doctor_user.conn.close()

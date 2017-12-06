@@ -11,12 +11,11 @@
             </rect>
         </property>
         <property name="windowTitle">
-            <string>information_winfow</string>
+            <string>Информация</string>
         </property>
         <property name="windowIcon">
             <iconset>
-                <normaloff>:/icon/C:/Users/banif/OneDrive/Pictures/hospital/info.png</normaloff>
-                :/icon/C:/Users/banif/OneDrive/Pictures/hospital/info.png
+                <normaloff>../../../../../../../test/info.png</normaloff>../../../../../../../test/info.png
             </iconset>
         </property>
         <property name="styleSheet">

@@ -32,8 +32,10 @@ class AuthController:
         elif self.user.type == 3:
             self._mainController.create_doctor_window(self.user)
 
-        if self.user.type != 0:
-            self._authWindow.setVisible(False)
+        self.off_enabled()
+
+    def off_enabled(self):
+        self._authWindow.setVisible(False)
 
     def get_info(self):
         self._mainController.create_info_window()
