@@ -21,6 +21,7 @@ class InfoWindow(CloseInterface):
         # get info time work section
         self.get_work_time_zip_text_box.textChanged.connect(self._controller.set_get_time_zip)
         self.get_work_time_fio_text_box.textChanged.connect(self._controller.set_get_time_fio)
+
         self.get_time_work_by_zip_button.clicked.connect(self._controller.select_time_work_by_zip)
         self.get_time_work_by_fio_button.clicked.connect(self._controller.select_time_work_by_fio)
         self.get_time_work_button.clicked.connect(self._controller.select_time_work)

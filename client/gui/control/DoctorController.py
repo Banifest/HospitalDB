@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QDate
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QDateEdit
+from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 
 from client.gui.view.DoctorWindow import DoctorWindow
 from client.model.Doctor import Doctor
@@ -265,7 +265,9 @@ class DoctorController:
         row = cursor.fetchone()
         table.setRowCount(0)
 
-        if not row:
+        if row is None:
+            QueryMessage(251)
+        elif not row:
             QueryMessage(399)
             return
         elif row[0] == 0 and callback is not None:

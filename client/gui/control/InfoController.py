@@ -68,7 +68,9 @@ class InfoController:
         row = cursor.fetchone()
         table.setRowCount(0)
 
-        if not row:
+        if row is None:
+            QueryMessage(251)
+        elif not row:
             QueryMessage(399)
             return
         else:

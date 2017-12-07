@@ -122,31 +122,33 @@ class UserController:
         table.setHorizontalHeaderLabels(header_titles)
         row = cursor.fetchone()
 
-        if not row:
+        if row is None:
+            QueryMessage(251)
+        elif not row:
             QueryMessage(399)
             return
+        else:
+            row_count = 0
+            table.setRowCount(row_count)
+            while row:
+                table.setRowCount(row_count + 1)
+                for x in range(len(header_titles)):
+                    if str(row[x]) == 'True' or str(row[x]) == 'False':
+                        table.setItem(row_count, x, QTableWidgetItem("Да" if row[7] else "Нет"))
+                    elif str(row[x]) == 'None':
+                        table.setItem(row_count, x, QTableWidgetItem("-"))
+                    else:
+                        table.setItem(row_count, x, QTableWidgetItem(str(row[x])))
+                row_count += 1
+                row = cursor.fetchone()
 
-        row_count = 0
-        table.setRowCount(row_count)
-        while row:
-            table.setRowCount(row_count + 1)
-            for x in range(len(header_titles)):
-                if str(row[x]) == 'True' or str(row[x]) == 'False':
-                    table.setItem(row_count, x, QTableWidgetItem("Да" if row[7] else "Нет"))
-                elif str(row[x]) == 'None':
-                    table.setItem(row_count, x, QTableWidgetItem("-"))
-                else:
-                    table.setItem(row_count, x, QTableWidgetItem(str(row[x])))
-            row_count += 1
-            row = cursor.fetchone()
+            table.resizeColumnsToContents()
 
-        table.resizeColumnsToContents()
-
-        if table == self._userWindow.table:
-            self.selected_row = -1
-            self.selected_column = -1
-            self._userWindow.desc_table.clearContents()
-            self._userWindow.desc_table.setRowCount(0)
+            if table == self._userWindow.table:
+                self.selected_row = -1
+                self.selected_column = -1
+                self._userWindow.desc_table.clearContents()
+                self._userWindow.desc_table.setRowCount(0)
 
     def standard_out(self, header_titles: list, query: str):
         self.thread = QueryThread(query, self.connection)

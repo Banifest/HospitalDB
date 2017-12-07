@@ -1,15 +1,6 @@
 import pymssql
 
 
-# def connection_to_db(username: str = 'test', patient_password: str = '123'):
-#     server = 'localhost'
-#     database = 'test'
-#     connection_string = 'DRIVER={0};SERVER={1};DATABASE={2};UID={3};PWD={4}'.format(
-#         'ODBC Driver 13 for SQL Server', server, database, username, patient_password
-#     )
-#     return pyodbc.connect(connection_string)
-
-
 def connection_to_db(username: str = 'reg', password: str = 'reg'):
     return pymssql.connect(server='localhost', user=username, password=password, database="test", port='1434',
                            autocommit=True)

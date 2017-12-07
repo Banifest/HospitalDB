@@ -1254,7 +1254,7 @@
                 </sizepolicy>
             </property>
             <property name="currentIndex">
-                <number>3</number>
+                <number>5</number>
             </property>
             <widget class="QWidget" name="page_2">
                 <property name="geometry">
@@ -1262,7 +1262,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>316</height>
+                        <height>289</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1360,7 +1360,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>316</height>
+                        <height>289</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1432,7 +1432,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>316</height>
+                        <height>289</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1535,7 +1535,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>316</height>
+                        <height>289</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1581,7 +1581,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>316</height>
+                        <height>289</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1619,6 +1619,37 @@
                             </widget>
                         </item>
                     </layout>
+                </widget>
+            </widget>
+            <widget class="QWidget" name="page_6">
+                <attribute name="label">
+                    <string>Иморт и экспорт списка больниц</string>
+                </attribute>
+                <widget class="QPushButton" name="import_button">
+                    <property name="geometry">
+                        <rect>
+                            <x>44</x>
+                            <y>70</y>
+                            <width>151</width>
+                            <height>41</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>Имортировать из xml</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" name="export_button">
+                    <property name="geometry">
+                        <rect>
+                            <x>40</x>
+                            <y>180</y>
+                            <width>151</width>
+                            <height>41</height>
+                        </rect>
+                    </property>
+                    <property name="text">
+                        <string>Эксортировать в xml</string>
+                    </property>
                 </widget>
             </widget>
   </widget>

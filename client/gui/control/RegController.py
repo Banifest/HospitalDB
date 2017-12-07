@@ -1,3 +1,5 @@
+from PyQt5.QtWidgets import QFileDialog
+
 from client.gui.view.RegWindow import RegWindow
 from client.model.Patient import Patient
 from client.model.QueryMessage import QueryMessage
@@ -149,10 +151,29 @@ class RegController:
         self.thread.done.connect(lambda: self.out(self.thread.cursor))
         self.thread.start()
 
+    def import_from_json(self):
+        # noinspection PyArgumentList
+        path = QFileDialog.getOpenFileName(filter="*.xml", parent=self._regWindow)[0]
+        if path != '':
+            self.get_query("EXEC [IMPORT_HOSPITALS] '{0}'".format(
+                open(path, "r").read()
+            ))
+
+    def export_into_json(self):
+        self.get_query("EXEC [EXPORT_HOSPITALS]")
+
     def out(self, cursor):
         row = cursor.fetchone()
-        if not row:
+        print(row[0])
+        if row is None:
+            QueryMessage(251)
+        elif not row:
             QueryMessage(200)
+        elif row[0].__class__ == str:
+            # noinspection PyArgumentList
+            path = QFileDialog.getSaveFileName(filter="*.xml", parent=self._regWindow)[0]
+            if path != '':
+                open(path, "w").write(row[0])
         elif row[0] != 0:
             QueryMessage(row[0])
         else:

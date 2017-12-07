@@ -44,5 +44,7 @@ class RegWindow(CloseInterface):
         self.take_button.clicked.connect(self._controller.take_doctor)
         self.change_hospital_user_button.clicked.connect(self._controller.change_patient)
         self.del_button.clicked.connect(self._controller.del_doctor)
+        self.import_button.clicked.connect(self._controller.import_from_json)
+        self.export_button.clicked.connect(self._controller.export_into_json)
 
         self.show()
