@@ -20,12 +20,12 @@ class UserController:
 
     _userWindow: UserWindow
     _patient: Patient
-    _date_begin_disease: date = '01-01-2000'
-    _date_end_disease: date = '01-01-2000'
+    _date_begin_disease: date = '2000-01-01'
+    _date_end_disease: date = '2000-01-01'
     _id_disease: int = 1
 
-    _date_begin_examination = '01-01-2000'
-    _date_end_examination = '01-01-2000'
+    _date_begin_examination = '2000-01-01'
+    _date_end_examination = '2000-01-01'
     _id_examination = 1
 
     PARAM_HEADER = ["Название обследования", "Название характеристики", "Значение характеристики"]
@@ -62,16 +62,16 @@ class UserController:
         self._userWindow = UserWindow(self, self._patient)
 
     def set_date_begin_disease(self, value: date):
-        self._date_begin_disease = value.toString('dd-MM-yyyy')
+        self._date_begin_disease = value.toString('yyyy-MM-dd')
 
     def set_date_end_disease(self, value: date):
-        self._date_end_disease = value.toString('dd-MM-yyyy')
+        self._date_end_disease = value.toString('yyyy-MM-dd')
 
     def set_date_begin_examination(self, value: date):
-        self._date_begin_examination = value.toString('dd-MM-yyyy')
+        self._date_begin_examination = value.toString('yyyy-MM-dd')
 
     def set_date_end_examination(self, value: date):
-        self._date_end_examination = value.toString('dd-MM-yyyy')
+        self._date_end_examination = value.toString('yyyy-MM-dd')
 
     def set_id_disease(self, value: str):
         self._id_disease = value

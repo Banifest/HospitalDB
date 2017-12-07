@@ -32,7 +32,7 @@ counter = 90000
 #     ))
 #
 for x in range(100):
-    cursor.execute("""EXEC [add_doctor] '{0}', '{1}', '{2}', '{3}', '{4}';""".format(
+    cursor.execute("""EXEC [change_disease] 1, '2100-12-31'""".format(
         'doctor ' + MAN_FIO[x], str(x) + "doc", 123, "01-01-{2}".format(
             random.randint(1, 28), random.randint(1, 12), random.randint(1900, 2017)), "это доктор"
     ))

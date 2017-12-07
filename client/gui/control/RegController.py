@@ -19,20 +19,20 @@ class RegController:
     patient_login: str = ""
     patient_password: str = ""
     patient_fio: str = ""
-    patient_birthday: str = "01-01-2000"
+    patient_birthday: str = "2000-01-01"
     patient_gender: bool = True
     patient_hospital_zip: int = 12345
 
     add_doctor_fio: str = ""
     add_doctor_login: str = ""
     add_doctor_password: str = ""
-    add_doctor_birthday: str = "01-01-2000"
+    add_doctor_birthday: str = "2000-01-01"
     add_doctor_description: str = ""
 
     take_doctor_login: str = ""
     take_doctor_zip: str = "12345"
     take_doctor_spec: str = ""
-    take_doctor_being_date: str = "01-01-2000"
+    take_doctor_being_date: str = "2000-01-01"
     take_doctor_being_time: str = "00:00"
     take_doctor_end_time: str = "00:00"
 
@@ -64,7 +64,7 @@ class RegController:
         self.add_doctor_password = fio
 
     def set_add_doctor_birthday(self, value):
-        self.add_doctor_birthday = value.toString('dd-MM-yyyy')
+        self.add_doctor_birthday = value.toString('yyyy-MM-dd')
 
     def set_add_doctor_description(self):
         self.add_doctor_description = self._regWindow.add_discription_doctor_text_box.toPlainText()
@@ -79,7 +79,7 @@ class RegController:
         self.patient_fio = fio
 
     def set_birthday(self, value):
-        self.patient_birthday = value.toString('dd-MM-yyyy')
+        self.patient_birthday = value.toString('yyyy-MM-dd')
 
     def set_gender(self, value: bool):
         self.patient_gender = value
@@ -103,7 +103,7 @@ class RegController:
         self.take_doctor_spec = value
 
     def set_take_doctor_being_date(self, value):
-        self.take_doctor_being_date = value.toString('dd-MM-yyyy')
+        self.take_doctor_being_date = value.toString('yyyy-MM-dd')
 
     def add_patient(self):
         self.get_query("EXEC [add_patient] '{0}', {1}, {2}, '{3}', '{4}', '{5}';"

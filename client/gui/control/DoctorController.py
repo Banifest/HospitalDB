@@ -43,32 +43,32 @@ class DoctorController:
 
     _add_login: str = ""
     _add_name_disease: str = ""
-    _add_date_being: str = "01-01-2000"
+    _add_date_being: str = "2000-01-01"
     _add_is_end: bool = True
-    _add_date_end: str = "01-01-2000"
+    _add_date_end: str = "2000-01-01"
     _add_decs_disease: str = ""
 
     _change_login: str = ""
     _change_id_disease: int = 1
-    _change_date_end: str = "01-01-2000"
+    _change_date_end: str = "2100-12-31"
 
     _see_login: str = ""
 
     _see_exm_login: str = ""
-    _see_exm_date_begin: str = "01-01-2000"
-    _see_exm_date_end: str = "01-01-2000"
+    _see_exm_date_begin: str = "2000-01-01"
+    _see_exm_date_end: str = "2000-01-01"
 
     _appoint_id_disease: int = 1
     _appoint_name_drag: str = ""
 
     _exm_login: str = ""
     _exm_name: str = ""
-    _exm_date: str = '01-01-2000'
+    _exm_date: str = '2000-01-01'
 
     _param_name: str = ""
     _param_val: str = ""
 
-    _get_stat_date: str = "01-01-2000"
+    _get_stat_date: str = "2000-01-01"
     _get_stat_index: int = "220000"
 
     @property
@@ -116,7 +116,7 @@ class DoctorController:
         self._add_name_disease = value
 
     def set_add_date_being(self, value):
-        self._add_date_being = value.toString('dd-MM-yyyy')
+        self._add_date_being = value.toString('yyyy-MM-dd')
 
     def set_add_is_end(self, value):
         self._add_is_end = value
@@ -126,28 +126,28 @@ class DoctorController:
         self._add_decs_disease = value
 
     def set_add_date_end(self, value):
-        self._add_date_end = value.toString('dd-MM-yyyy')
+        self._add_date_end = value.toString('yyyy-MM-dd')
 
     def set_change_date_end(self, value):
-        self._change_date_end = value.toString('dd-MM-yyyy')
+        self._change_date_end = value.toString('yyyy-MM-dd')
 
     def set_appoint_name_drag(self, value):
         self._appoint_name_drag = value
 
     def set_see_exm_date_begin(self, value):
-        self._see_exm_date_begin = value.toString('dd-MM-yyyy')
+        self._see_exm_date_begin = value.toString('yyyy-MM-dd')
 
     def set_see_exm_date_end(self, value):
-        self._see_exm_date_end = value.toString('dd-MM-yyyy')
+        self._see_exm_date_end = value.toString('yyyy-MM-dd')
 
     def set_exm_date(self, value):
-        self._exm_date = value.toString('dd-MM-yyyy')
+        self._exm_date = value.toString('yyyy-MM-dd')
 
     def set_get_stat_index(self, value):
         self._get_stat_index = value
 
     def set_get_stat_date(self, value):
-        self._get_stat_date = value.toString('dd-MM-yyyy')
+        self._get_stat_date = value.toString('yyyy-MM-dd')
 
     def select_disease_patient(self):
         self.currentState = self.SELECT_STATE['disease']
@@ -158,9 +158,14 @@ class DoctorController:
     def select_add_disease_patient(self):
         self._docWindow.see_login_text_box.setText(self._add_login)
         self.standard_out(self.HEADERS['disease'],
-                          "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'".format(
-                              self._add_login, self.login, self.password, self._add_name_disease,
-                              self._add_date_being, self._add_date_end, self._add_decs_disease),
+                          "EXEC add_disease '{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}'".format(
+                              self._add_login,
+                              self.login,
+                              self.password
+                              , self._add_name_disease,
+                              self._add_date_being,
+                              "'{0}'".format(self._add_date_end) if self._add_is_end else 'NULL',
+                              self._add_decs_disease),
                           callback=self.select_disease_patient)
         self.currentState = self.SELECT_STATE['disease']
 
