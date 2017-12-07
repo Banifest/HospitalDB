@@ -25,14 +25,15 @@ class AuthController:
         self.user.set_connection(self._connection)
         self.user.get(self.login, self.password)
 
+        self.off_enabled()
         if self.user.type == 1:
             self._mainController.create_user_window(self.user)
         elif self.user.type == 2:
             self._mainController.create_reg_window(self.user)
         elif self.user.type == 3:
             self._mainController.create_doctor_window(self.user)
-
-        self.off_enabled()
+        else:
+            self.on_enabled()
 
     def off_enabled(self):
         self._authWindow.setVisible(False)
