@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
        <width>267</width>
-       <height>610</height>
+       <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1254,7 +1254,7 @@
                 </sizepolicy>
             </property>
             <property name="currentIndex">
-                <number>4</number>
+                <number>2</number>
             </property>
             <widget class="QWidget" name="page_2">
                 <property name="geometry">
@@ -1262,7 +1262,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>289</height>
+                        <height>279</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1510,7 +1510,7 @@
                                     <string/>
                                 </property>
                                 <property name="placeholderText">
-                                    <string>Назавание специальности</string>
+                                    <string>Название специальности</string>
                                 </property>
                             </widget>
                         </item>
@@ -1543,7 +1543,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>289</height>
+                        <height>279</height>
                     </rect>
                 </property>
                 <attribute name="label">

@@ -752,7 +752,7 @@ AS
 	select 211;
 GO
 -------------------------------------------------------------
- PROCEDURE [dbo].[take_doctor]
+CREATE PROCEDURE [dbo].[take_doctor]
 	@login nvarchar(50),
 	@zip int,
 	@spec nvarchar(50),
@@ -771,10 +771,13 @@ AS
 
 	SELECT top(1) @hospital_id = Hospitals.id FROM Hospitals WHERE zip=@zip;
 
-	if(@check_type = 3 and @doctor_id!=0 and @hospital_id!=0)
+	if(@check_type = 3 and @doctor_id!=0 and @hospital_id!=0
+	and NOT EXISTS(SELECT * FROM DoctorsHospitals
+	WHERE (time_begin_working<=@begin_time and @begin_time<=time_end_working)
+	or (time_begin_working<=@end_time and @end_time<=time_end_working)))
 	BEGIN
 		INSERT INTO DoctorsHospitals
-		VALUES(@begin_date, NULL, @doctor_id, @hospital_id, @spec, @begin_time, @end_time)
+		VALUES(@doctor_id, @hospital_id,  @spec, @begin_time, @end_time, @begin_date, NULL)
 		SELECT 0;
 	END
 	else
