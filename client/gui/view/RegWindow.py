@@ -17,7 +17,7 @@ class RegWindow(CloseInterface):
         self.user_birthday.userDateChanged.connect(self._controller.set_birthday)
         self.user_men_radio.clicked.connect(lambda: self._controller.set_gender(True))
         self.user_women_radio.clicked.connect(lambda: self._controller.set_gender(False))
-        self.user_zip_text_box.textChanged.connect(self._controller.set_zip)
+        self.user_zip_text_box.valueChanged.connect(self._controller.set_zip)
 
         self.add_fio_doctor_text_box.textChanged.connect(self._controller.set_add_doctor_fio)
         self.add_login_doctor_text_box.textChanged.connect(self._controller.set_add_doctor_login)
@@ -26,17 +26,17 @@ class RegWindow(CloseInterface):
         self.add_discription_doctor_text_box.textChanged.connect(self._controller.set_add_doctor_description)
 
         self.take_login_doctor_text_box.textChanged.connect(self._controller.set_take_doctor_login)
-        self.take_zip_doctor_text_box.textChanged.connect(self._controller.set_take_doctor_zip)
+        self.take_zip_doctor_text_box.valueChanged.connect(self._controller.set_take_doctor_zip)
         self.take_special_doctor_text_box.textChanged.connect(self._controller.set_take_doctor_spec)
         self.take_doctor_date_being_work.userDateChanged.connect(self._controller.set_take_doctor_being_date)
         self.take_doctor_time_begin.userTimeChanged.connect(self._controller.set_take_doctor_being_time)
         self.take_doctor_time_end.userTimeChanged.connect(self._controller.set_take_doctor_end_time)
 
         self.change_login_text_box.textChanged.connect(self._controller.set_change_login)
-        self.change_zip_text_box.textChanged.connect(self._controller.set_change_zip)
+        self.change_zip_text_box.valueChanged.connect(self._controller.set_change_zip)
 
         self.del_login_text_box.textChanged.connect(self._controller.set_del_login)
-        self.del_password_text_box.textChanged.connect(self._controller.set_del_zip)
+        self.del_zip_text_box.valueChanged.connect(self._controller.set_del_zip)
 
         self.add_patient_button.clicked.connect(self._controller.add_patient)
         self.create_doctor_button.clicked.connect(self._controller.add_doctor)

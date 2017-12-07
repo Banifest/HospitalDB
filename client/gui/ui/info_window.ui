@@ -1249,16 +1249,9 @@
             </property>
             <layout class="QGridLayout" name="gridLayout_5">
                 <item row="1" column="0">
-                    <widget class="QLineEdit" name="drag_id_text_box">
-                        <property name="placeholderText">
-                            <string>id лекарства</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="2" column="1">
-                    <widget class="QPushButton" name="drag_by_name_button">
-                        <property name="text">
-                            <string>По имени</string>
+                    <widget class="QSpinBox" name="drag_id_text_box">
+                        <property name="maximum">
+                            <number>9999999</number>
                         </property>
                     </widget>
                 </item>
@@ -1279,6 +1272,13 @@
                         </property>
                     </widget>
                 </item>
+                <item row="2" column="1">
+                    <widget class="QPushButton" name="drag_by_name_button">
+                        <property name="text">
+                            <string>По имени</string>
+                        </property>
+                    </widget>
+                </item>
                 <item row="0" column="0" colspan="2">
                     <widget class="QLabel" name="label_7">
                         <property name="text">
@@ -1292,9 +1292,9 @@
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>211</y>
+                    <y>231</y>
                     <width>541</width>
-                    <height>141</height>
+                    <height>121</height>
                 </rect>
             </property>
         </widget>
@@ -1304,11 +1304,25 @@
                     <x>320</x>
                     <y>10</y>
                     <width>191</width>
-                    <height>195</height>
+                    <height>214</height>
                 </rect>
             </property>
             <layout class="QGridLayout" name="gridLayout">
-                <item row="4" column="0">
+                <item row="2" column="0">
+                    <widget class="QSpinBox" name="get_work_time_zip_text_box">
+                        <property name="maximum">
+                            <number>99999999</number>
+                        </property>
+                    </widget>
+                </item>
+                <item row="7" column="0">
+                    <widget class="QPushButton" name="get_time_work_button">
+                        <property name="text">
+                            <string>Получить информацию</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="5" column="0">
                     <widget class="QPushButton" name="get_time_work_by_zip_button">
                         <property name="text">
                             <string>Получить информацию по индексу</string>
@@ -1316,36 +1330,26 @@
                     </widget>
                 </item>
                 <item row="3" column="0">
-                    <widget class="QLineEdit" name="get_work_time_fio_text_box">
-                        <property name="text">
-                            <string/>
-                        </property>
-                        <property name="placeholderText">
-                            <string>ФИО врача</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="1" column="0">
-                    <widget class="QLineEdit" name="get_work_time_zip_text_box">
-                        <property name="text">
-                            <string/>
-                        </property>
-                        <property name="placeholderText">
-                            <string>Индекс больницы</string>
-                        </property>
-                    </widget>
-                </item>
-                <item row="2" column="0">
                     <widget class="QLabel" name="label_2">
                         <property name="text">
                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;И(ИЛИ)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                     </widget>
                 </item>
-                <item row="5" column="0">
+                <item row="6" column="0">
                     <widget class="QPushButton" name="get_time_work_by_fio_button">
                         <property name="text">
                             <string>Получить информацию по ФИО</string>
+                        </property>
+                    </widget>
+                </item>
+                <item row="4" column="0">
+                    <widget class="QLineEdit" name="get_work_time_fio_text_box">
+                        <property name="text">
+                            <string/>
+                        </property>
+                        <property name="placeholderText">
+                            <string>ФИО врача</string>
                         </property>
                     </widget>
                 </item>
@@ -1358,10 +1362,12 @@
                         </property>
                     </widget>
                 </item>
-                <item row="6" column="0">
-                    <widget class="QPushButton" name="get_time_work_button">
+                <item row="1" column="0">
+                    <widget class="QLabel" name="label_3">
                         <property name="text">
-                            <string>Получить информацию</string>
+                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Индекс
+                                больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                            </string>
                         </property>
                     </widget>
                 </item>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
        <width>267</width>
-       <height>480</height>
+       <height>511</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1244,7 +1244,7 @@
         <x>10</x>
         <y>10</y>
         <width>251</width>
-        <height>451</height>
+        <height>491</height>
     </rect>
    </property>
             <property name="sizePolicy">
@@ -1254,7 +1254,7 @@
                 </sizepolicy>
             </property>
             <property name="currentIndex">
-                <number>2</number>
+                <number>5</number>
             </property>
             <widget class="QWidget" name="page_2">
                 <property name="geometry">
@@ -1262,7 +1262,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>279</height>
+                        <height>319</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1272,25 +1272,15 @@
                     <property name="geometry">
                         <rect>
                             <x>10</x>
-                            <y>30</y>
+                            <y>6</y>
                             <width>221</width>
-                            <height>237</height>
+                            <height>271</height>
                         </rect>
                     </property>
-                    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0">
+                    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0">
                         <property name="sizeConstraint">
                             <enum>QLayout::SetDefaultConstraint</enum>
                         </property>
-                        <item row="1" column="0" colspan="2">
-                            <widget class="QLineEdit" name="user_password_text_box">
-                                <property name="echoMode">
-                                    <enum>QLineEdit::Password</enum>
-                                </property>
-                                <property name="placeholderText">
-                                    <string>Пароль</string>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="5" column="0" alignment="Qt::AlignLeft">
                             <widget class="QRadioButton" name="user_men_radio">
                                 <property name="text">
@@ -1301,34 +1291,25 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="3" column="0" colspan="2">
-                            <widget class="QLabel" name="label_4">
-                                <property name="text">
-                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
-                                        рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                                    </string>
+                        <item row="1" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_password_text_box">
+                                <property name="echoMode">
+                                    <enum>QLineEdit::Password</enum>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Пароль</string>
                                 </property>
                             </widget>
                         </item>
-                        <item row="2" column="0" colspan="2">
-                            <widget class="QLineEdit" name="user_fio_text_box">
+                        <item row="9" column="0" colspan="2">
+                            <widget class="QPushButton" name="add_patient_button">
                                 <property name="text">
-                                    <string/>
-                                </property>
-                                <property name="placeholderText">
-                                    <string>Фамилия Имя Отчество</string>
+                                    <string>Добавить пациента</string>
                                 </property>
                             </widget>
                         </item>
                         <item row="4" column="0" colspan="2">
                             <widget class="QDateEdit" name="user_birthday"/>
-                        </item>
-                        <item row="6" column="0" colspan="2">
-                            <widget class="QLineEdit" name="user_zip_text_box">
-                                <property name="placeholderText">
-                                    <string>Индекс больницы</string>
-                                </property>
-                            </widget>
                         </item>
                         <item row="0" column="0" colspan="2">
                             <widget class="QLineEdit" name="user_login_text_box">
@@ -1352,10 +1333,38 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="8" column="0" colspan="2">
-                            <widget class="QPushButton" name="add_patient_button">
+                        <item row="3" column="0" colspan="2">
+                            <widget class="QLabel" name="label_4">
                                 <property name="text">
-                                    <string>Добавить пациента</string>
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        рождения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0" colspan="2">
+                            <widget class="QLineEdit" name="user_fio_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Фамилия Имя Отчество</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0" colspan="2">
+                            <widget class="QLabel" name="label">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Индекс
+                                        больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="7" column="0" colspan="2">
+                            <widget class="QSpinBox" name="user_zip_text_box">
+                                <property name="maximum">
+                                    <number>999999</number>
                                 </property>
                             </widget>
                         </item>
@@ -1368,7 +1377,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>279</height>
+                        <height>319</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1440,7 +1449,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>279</height>
+                        <height>319</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1452,11 +1461,18 @@
                             <x>10</x>
                             <y>0</y>
                             <width>221</width>
-                            <height>271</height>
+                            <height>299</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
-                        <item row="7" column="0">
+                        <item row="14" column="0">
+                            <widget class="QPushButton" name="take_button">
+                                <property name="text">
+                                    <string>Добавить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="8" column="0">
                             <widget class="QLabel" name="label_6">
                                 <property name="text">
                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
@@ -1466,59 +1482,21 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="13" column="0">
-                            <widget class="QPushButton" name="take_button">
-                                <property name="text">
-                                    <string>Добавить</string>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="12" column="0">
-                            <widget class="QTimeEdit" name="take_doctor_time_end">
-                                <property name="displayFormat">
-                                    <string>HH:mm</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="4" column="0">
-                            <widget class="QLineEdit" name="take_zip_doctor_text_box">
-                                <property name="placeholderText">
-                                    <string>Индекс больницы</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="9" column="0">
-                            <widget class="QLabel" name="label_8">
+                            <widget class="QLabel" name="label_9">
                                 <property name="text">
                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время
-                                        начала
+                                        конца
                                         смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                                     </string>
                                 </property>
                             </widget>
                         </item>
                         <item row="10" column="0">
-                            <widget class="QTimeEdit" name="take_doctor_time_begin">
-                                <property name="displayFormat">
-                                    <string>HH:mm</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="5" column="0">
-                            <widget class="QLineEdit" name="take_special_doctor_text_box">
-                                <property name="text">
-                                    <string/>
-                                </property>
-                                <property name="placeholderText">
-                                    <string>Название специальности</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="11" column="0">
-                            <widget class="QLabel" name="label_9">
+                            <widget class="QLabel" name="label_8">
                                 <property name="text">
                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время
-                                        конца
+                                        начала
                                         смены&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                                     </string>
                                 </property>
@@ -1531,8 +1509,48 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="8" column="0">
+                        <item row="9" column="0">
                             <widget class="QDateEdit" name="take_doctor_date_being_work"/>
+                        </item>
+                        <item row="11" column="0">
+                            <widget class="QTimeEdit" name="take_doctor_time_begin">
+                                <property name="displayFormat">
+                                    <string>HH:mm</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0">
+                            <widget class="QLineEdit" name="take_special_doctor_text_box">
+                                <property name="text">
+                                    <string/>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>Название специальности</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="13" column="0">
+                            <widget class="QTimeEdit" name="take_doctor_time_end">
+                                <property name="displayFormat">
+                                    <string>HH:mm</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QLabel" name="label_7">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Индекс
+                                        больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QSpinBox" name="take_zip_doctor_text_box">
+                                <property name="maximum">
+                                    <number>999999</number>
+                                </property>
+                            </widget>
                         </item>
                     </layout>
                 </widget>
@@ -1543,7 +1561,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>279</height>
+                        <height>319</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1555,18 +1573,11 @@
                             <x>10</x>
                             <y>70</y>
                             <width>221</width>
-                            <height>95</height>
+                            <height>131</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_2">
-                        <item row="3" column="0">
-                            <widget class="QLineEdit" name="change_zip_text_box">
-                                <property name="placeholderText">
-                                    <string>Новый индекс больницы</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="4" column="0">
+                        <item row="5" column="0">
                             <widget class="QPushButton" name="change_hospital_user_button">
                                 <property name="text">
                                     <string>Сменить привязку к больницы</string>
@@ -1580,6 +1591,22 @@
                                 </property>
                             </widget>
                         </item>
+                        <item row="3" column="0">
+                            <widget class="QLabel" name="label_2">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Новый
+                                        индекс больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QSpinBox" name="change_zip_text_box">
+                                <property name="maximum">
+                                    <number>999999</number>
+                                </property>
+                            </widget>
+                        </item>
                     </layout>
                 </widget>
             </widget>
@@ -1589,7 +1616,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>279</height>
+                        <height>319</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1601,17 +1628,10 @@
                             <x>10</x>
                             <y>70</y>
                             <width>221</width>
-                            <height>101</height>
+                            <height>148</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="tet">
-                        <item row="2" column="0">
-                            <widget class="QPushButton" name="del_button">
-                                <property name="text">
-                                    <string>Уволить</string>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="0" column="0">
                             <widget class="QLineEdit" name="del_login_text_box">
                                 <property name="placeholderText">
@@ -1619,10 +1639,26 @@
                                 </property>
                             </widget>
                         </item>
+                        <item row="3" column="0">
+                            <widget class="QPushButton" name="del_button">
+                                <property name="text">
+                                    <string>Уволить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QSpinBox" name="del_zip_text_box">
+                                <property name="maximum">
+                                    <number>999999</number>
+                                </property>
+                            </widget>
+                        </item>
                         <item row="1" column="0">
-                            <widget class="QLineEdit" name="del_password_text_box">
-                                <property name="placeholderText">
-                                    <string>Индекс больницы</string>
+                            <widget class="QLabel" name="label_3">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Новый
+                                        индекс больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
                                 </property>
                             </widget>
                         </item>
@@ -1630,6 +1666,14 @@
                 </widget>
             </widget>
             <widget class="QWidget" name="page_6">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>241</width>
+                        <height>319</height>
+                    </rect>
+                </property>
                 <attribute name="label">
                     <string>Иморт и экспорт списка больниц</string>
                 </attribute>
