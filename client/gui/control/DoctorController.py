@@ -264,10 +264,9 @@ class DoctorController:
         table.setHorizontalHeaderLabels(header_titles)
         row = cursor.fetchone()
         table.setRowCount(0)
+        table.resizeColumnsToContents()
 
-        if row is None:
-            QueryMessage(251)
-        elif not row:
+        if not row:
             QueryMessage(399)
             return
         elif row[0] == 0 and callback is not None:

@@ -164,9 +164,7 @@ class RegController:
 
     def out(self, cursor):
         row = cursor.fetchone()
-        if row is None:
-            QueryMessage(251)
-        elif not row:
+        if not row:
             QueryMessage(200)
         elif row[0].__class__ == str:
             # noinspection PyArgumentList
