@@ -164,7 +164,6 @@ class RegController:
 
     def out(self, cursor):
         row = cursor.fetchone()
-        print(row[0])
         if row is None:
             QueryMessage(251)
         elif not row:
