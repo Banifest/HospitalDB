@@ -24,20 +24,20 @@ class MainController:
     def __init__(self):
         App = QApplication(sys.argv)
         App.setStyleSheet(open("stylesheet.qcc", "r").read())
-        self.conn = connection_to_db('test', '123')
+        self.conn = connection_to_db('authorization', '123')
         self._authController = AuthController(self, self.conn)
         App.exec()
 
     def create_user_window(self, user: User):
         self.user = user
         user.conn.close()
-        user.conn = connection_to_db(username='doctor', password='123')
+        user.conn = connection_to_db(username='patient', password='123')
         self.conn = user.conn
         self._userController = UserController(self, self.user)
 
     def create_reg_window(self, reg_user: User):
         reg_user.conn.close()
-        reg_user.conn = connection_to_db(username='reg', password='reg')
+        reg_user.conn = connection_to_db(username='registrator', password='123')
         self.conn = reg_user.conn
         self._regController = RegController(self, reg_user)
 
