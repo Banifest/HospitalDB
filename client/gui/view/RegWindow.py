@@ -7,7 +7,6 @@ class RegWindow(CloseInterface):
 
     def __init__(self, controller):
         self._controller = controller
-        # TODO PIVOT
         # noinspection PyArgumentList
         super(RegWindow, self).__init__()
         uic.loadUi(r'gui\ui\reg_window.ui', self)

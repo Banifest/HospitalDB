@@ -1264,8 +1264,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1303,8 +1303,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1320,6 +1320,15 @@
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
+                        <item row="7" column="0">
+                            <widget class="QLabel" name="label_6">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
+                                        окончания болезни&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
                         <item row="1" column="0">
                             <widget class="QLineEdit" name="add_login_text_box">
                                 <property name="text">
@@ -1330,41 +1339,21 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="6" column="0">
-                            <widget class="QCheckBox" name="add_is_end_disease">
-                                <property name="text">
-                                    <string>Окончилась ли болезнь</string>
-                                </property>
-                                <property name="checked">
-                                    <bool>true</bool>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="9" column="0">
-                            <widget class="QPushButton" name="add_disease_button">
-                                <property name="text">
-                                    <string>Добавить</string>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="8" column="0">
                             <widget class="QDateEdit" name="add_date_end_disease">
-                                <property name="date">
+                                <property name="maximumDate">
                                     <date>
-                                        <year>7000</year>
-                                        <month>1</month>
-                                        <day>1</day>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
                                     </date>
                                 </property>
-                            </widget>
-                        </item>
-                        <item row="5" column="0">
-                            <widget class="QDateEdit" name="add_date_begin_disease"/>
-                        </item>
-                        <item row="2" column="0">
-                            <widget class="QLineEdit" name="add_name_disease_text_box">
-                                <property name="placeholderText">
-                                    <string>Имя заболевания</string>
+                                <property name="date">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
                                 </property>
                             </widget>
                         </item>
@@ -1375,19 +1364,48 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="7" column="0">
-                            <widget class="QLabel" name="label_6">
-                                <property name="text">
-                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Дата
-                                        окончания болезни&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                                    </string>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="3" column="0">
                             <widget class="QLineEdit" name="add_desc_disease_text_box">
                                 <property name="placeholderText">
                                     <string>Описание болезни</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="9" column="0">
+                            <widget class="QPushButton" name="add_disease_button">
+                                <property name="text">
+                                    <string>Добавить</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="5" column="0">
+                            <widget class="QDateEdit" name="add_date_begin_disease">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="2" column="0">
+                            <widget class="QLineEdit" name="add_name_disease_text_box">
+                                <property name="placeholderText">
+                                    <string>Имя заболевания</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0">
+                            <widget class="QCheckBox" name="add_is_end_disease">
+                                <property name="enabled">
+                                    <bool>true</bool>
+                                </property>
+                                <property name="text">
+                                    <string>Окончилась ли болезнь</string>
+                                </property>
+                                <property name="checked">
+                                    <bool>true</bool>
                                 </property>
                             </widget>
                         </item>
@@ -1399,8 +1417,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1427,11 +1445,18 @@
                         </item>
                         <item row="2" column="0">
                             <widget class="QDateEdit" name="change_date_end_disease_text_box">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
                                 <property name="date">
                                     <date>
-                                        <year>7000</year>
-                                        <month>1</month>
-                                        <day>1</day>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
                                     </date>
                                 </property>
                             </widget>
@@ -1460,8 +1485,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1508,8 +1533,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1526,10 +1551,26 @@
                     </property>
                     <layout class="QGridLayout" name="gridLayout_7">
                         <item row="1" column="0">
-                            <widget class="QDateEdit" name="see_exm_date_begin"/>
+                            <widget class="QDateEdit" name="see_exm_date_begin">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
+                            </widget>
                         </item>
                         <item row="1" column="1">
-                            <widget class="QDateEdit" name="see_exm_date_end"/>
+                            <widget class="QDateEdit" name="see_exm_date_end">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
+                            </widget>
                         </item>
                         <item row="0" column="0" colspan="2">
                             <widget class="QLineEdit" name="see_exm_login_text_box">
@@ -1560,8 +1601,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1578,7 +1619,15 @@
                     </property>
                     <layout class="QGridLayout" name="gridLayout">
                         <item row="3" column="0">
-                            <widget class="QDateEdit" name="add_exm_date"/>
+                            <widget class="QDateEdit" name="add_exm_date">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
+                            </widget>
                         </item>
                         <item row="4" column="0">
                             <widget class="QPushButton" name="add_exm_button">
@@ -1618,8 +1667,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>100</width>
-                        <height>30</height>
+                        <width>291</width>
+                        <height>245</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1693,10 +1742,19 @@
                             <x>10</x>
                             <y>10</y>
                             <width>271</width>
-                            <height>221</height>
+                            <height>231</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_8">
+                        <item row="1" column="0">
+                            <widget class="QLabel" name="label_9">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Индек
+                                        больницы&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                    </string>
+                                </property>
+                            </widget>
+                        </item>
                         <item row="0" column="0">
                             <widget class="QPushButton" name="get_stat_by_all_time">
                                 <property name="text">
@@ -1704,8 +1762,15 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="3" column="0">
+                        <item row="5" column="0">
                             <widget class="QDateEdit" name="get_stat_date">
+                                <property name="maximumDate">
+                                    <date>
+                                        <year>2100</year>
+                                        <month>12</month>
+                                        <day>31</day>
+                                    </date>
+                                </property>
                                 <property name="currentSection">
                                     <enum>QDateTimeEdit::YearSection</enum>
                                 </property>
@@ -1714,14 +1779,21 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="5" column="0">
+                        <item row="7" column="0">
                             <widget class="QPushButton" name="get_stat_by_index_year">
                                 <property name="text">
                                     <string>Получить статистику по индексу и году</string>
                                 </property>
                             </widget>
                         </item>
-                        <item row="4" column="0">
+                        <item row="3" column="0">
+                            <widget class="QPushButton" name="get_stat_by_index">
+                                <property name="text">
+                                    <string>Получить статистику по индексу больницы</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="6" column="0">
                             <widget class="QPushButton" name="get_stat_by_year">
                                 <property name="text">
                                     <string>Получить статистику по году</string>
@@ -1729,19 +1801,19 @@
                             </widget>
                         </item>
                         <item row="2" column="0">
-                            <widget class="QPushButton" name="get_stat_by_index">
-                                <property name="text">
-                                    <string>Получить статистику по индексу больницы</string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="1" column="0">
                             <widget class="QSpinBox" name="get_stat_index_text_box">
                                 <property name="maximum">
                                     <number>999999</number>
                                 </property>
                                 <property name="value">
                                     <number>220000</number>
+                                </property>
+                            </widget>
+                        </item>
+                        <item row="4" column="0">
+                            <widget class="QLabel" name="label_10">
+                                <property name="text">
+                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Год&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                                 </property>
                             </widget>
                         </item>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
        <width>267</width>
-       <height>477</height>
+       <height>610</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1244,7 +1244,7 @@
         <x>10</x>
         <y>10</y>
         <width>251</width>
-        <height>461</height>
+        <height>451</height>
     </rect>
    </property>
             <property name="sizePolicy">
@@ -1254,7 +1254,7 @@
                 </sizepolicy>
             </property>
             <property name="currentIndex">
-                <number>5</number>
+                <number>4</number>
             </property>
             <widget class="QWidget" name="page_2">
                 <property name="geometry">
@@ -1339,6 +1339,14 @@
                         </item>
                         <item row="5" column="1">
                             <widget class="QRadioButton" name="user_women_radio">
+                                <property name="styleSheet">
+                                    <string notr="true">color: rgb(255, 255, 255);
+                                        selection-background-color: rgb(255, 255, 255);
+                                        gridline-color: rgb(255, 255, 255);
+                                        border-color: rgb(255, 255, 255);
+                                        alternate-background-color: rgb(255, 255, 255);
+                                    </string>
+                                </property>
                                 <property name="text">
                                     <string>жен</string>
                                 </property>
@@ -1360,7 +1368,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>289</height>
+                        <height>279</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1432,7 +1440,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>289</height>
+                        <height>279</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1444,7 +1452,7 @@
                             <x>10</x>
                             <y>0</y>
                             <width>221</width>
-                            <height>311</height>
+                            <height>271</height>
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
@@ -1581,7 +1589,7 @@
                         <x>0</x>
                         <y>0</y>
                         <width>241</width>
-                        <height>289</height>
+                        <height>279</height>
                     </rect>
                 </property>
                 <attribute name="label">

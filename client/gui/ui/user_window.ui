@@ -1362,15 +1362,15 @@
              </rect>
          </property>
          <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
          </property>
          <widget class="QWidget" name="widget">
              <property name="geometry">
                  <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>100</width>
-                     <height>30</height>
+                     <width>221</width>
+                     <height>247</height>
                  </rect>
              </property>
              <attribute name="label">
@@ -1381,7 +1381,7 @@
                      <rect>
                          <x>10</x>
                          <y>80</y>
-                         <width>215</width>
+                         <width>201</width>
                          <height>81</height>
                      </rect>
                  </property>
