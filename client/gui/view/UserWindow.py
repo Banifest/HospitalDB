@@ -1,11 +1,12 @@
 from PyQt5 import uic
 
 from client.gui.view.CloseInterface import CloseInterface
+from client.model.Patient import Patient
 
 
 class UserWindow(CloseInterface):
 
-    def __init__(self, controller, patient):
+    def __init__(self, controller, patient: Patient):
         self._controller = controller
 
         # noinspection PyArgumentList
@@ -15,7 +16,7 @@ class UserWindow(CloseInterface):
         self.fio_label.setText(patient.fio)
         self.birthday_label.setText(patient.birthday)
         self.gender_label.setText(patient.gender)
-        self.hospital_label.setText(patient.zip)
+        self.hospital_label.setText(patient.address)
 
         self.date_begining_disease.userDateChanged.connect(self._controller.set_date_begin_disease)
         self.date_ending_disease.userDateChanged.connect(self._controller.set_date_end_disease)

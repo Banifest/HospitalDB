@@ -25,6 +25,10 @@ class Patient:
     def zip(self) -> int:
         return self._hospitalZip
 
+    @property
+    def address(self) -> str:
+        return self._hospitalAddress
+
     def __init__(self, user: User=None, login: str = 0, password: str = 0, user_type: int = 0, fio: str = 0,
                  birthday: date = "", patient_zip: int = None, connection=None, gender: bool = None):
         if user is not None:
