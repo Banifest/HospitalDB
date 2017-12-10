@@ -1341,16 +1341,11 @@
           <enum>QAbstractItemView::SelectRows</enum>
       </property>
    <property name="rowCount">
-    <number>2</number>
+       <number>0</number>
    </property>
    <property name="columnCount">
-    <number>3</number>
+       <number>0</number>
    </property>
-   <row/>
-   <row/>
-   <column/>
-   <column/>
-   <column/>
   </widget>
      <widget class="QToolBox" name="toolBox">
          <property name="geometry">
@@ -1374,7 +1369,7 @@
                  </rect>
              </property>
              <attribute name="label">
-                 <string>Запросить информацию по болезням с, по</string>
+                 <string>Информацию по болезням с, по</string>
              </attribute>
              <widget class="QWidget" name="layoutWidget">
                  <property name="geometry">

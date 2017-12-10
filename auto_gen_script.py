@@ -37,7 +37,7 @@ counter = 90000
 #             random.randint(1, 28), random.randint(1, 12), random.randint(1900, 2017)), "это доктор"
 #     ))
 
-for x in range(1000):
+for x in range(100000):
     cursor.execute("""INSERT INTO [dbo].[Drags]
            ([name]
            ,[price]
@@ -48,8 +48,9 @@ for x in range(1000):
            ,[is_need_recipe])
      VALUES
            ('{0}', {1}, '{2}', '{3}', {4}, '{5}', {6})""".format(
-        random.choice(["Пара", "Ксино", "Дека"]) + random.choice(["медо", "цито", "ро"]) + random.choice(
-            ["мол", "вол", "кол"]),
+        random.choice(["Пара", "Ксино", "Дека", "Вало", "Мизе", "Вана"]) +
+        random.choice(["медо", "цито", "ро", "до", "по", "зо"]) +
+        random.choice(["мол", "вол", "кол", "мал", "вал", "зол", "ль"]),
         random.randint(1, 1000),
         "{2}-{1}-{0}".format(random.randint(1, 28), random.randint(1, 12), random.randint(2018, 3000)),
         "Описание",

@@ -1264,8 +1264,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1303,8 +1303,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1417,8 +1417,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1485,8 +1485,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1533,8 +1533,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1601,8 +1601,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
@@ -1684,6 +1684,13 @@
                         </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_6">
+                        <item row="3" column="0">
+                            <widget class="QPushButton" name="add_param_button">
+                                <property name="text">
+                                    <string>Добавить</string>
+                                </property>
+                            </widget>
+                        </item>
                         <item row="1" column="0">
                             <widget class="QLineEdit" name="add_param_name_text_box">
                                 <property name="placeholderText">
@@ -1698,26 +1705,12 @@
                                 </property>
                             </widget>
                         </item>
-                        <item row="4" column="0">
-                            <widget class="Line" name="line">
-                                <property name="orientation">
-                                    <enum>Qt::Horizontal</enum>
-                                </property>
-                            </widget>
-                        </item>
                         <item row="0" column="0">
                             <widget class="QLabel" name="label_4">
                                 <property name="text">
                                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span
                                         style=&quot; font-weight:600;&quot;&gt;Изменение выделенной записи&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                                     </string>
-                                </property>
-                            </widget>
-                        </item>
-                        <item row="3" column="0">
-                            <widget class="QPushButton" name="add_param_button">
-                                <property name="text">
-                                    <string>Добавить</string>
                                 </property>
                             </widget>
                         </item>
@@ -1729,8 +1722,8 @@
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>291</width>
-                        <height>245</height>
+                        <width>100</width>
+                        <height>30</height>
                     </rect>
                 </property>
                 <attribute name="label">
