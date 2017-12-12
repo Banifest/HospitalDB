@@ -110,7 +110,7 @@ class UserController:
 
     def select_current_health_state(self):
         self.currentState = self.SELECT_STATE['none']
-        self.standard_out(self.PARAM_HEADER, "EXEC [get_current_state_health] '{0}', '{1}'".format(
+        self.standard_out(self.PARAM_HEADER + ["Дата проверки"], "EXEC [get_current_state_health] '{0}', '{1}'".format(
             self.login, self.password))
 
     def out(self, header_titles: list, cursor, table: QTableWidget = None):
@@ -122,9 +122,7 @@ class UserController:
         table.setHorizontalHeaderLabels(header_titles)
         row = cursor.fetchone()
 
-        if row is None:
-            QueryMessage(251)
-        elif not row:
+        if row is None or not row:
             QueryMessage(399)
             return
         else:
